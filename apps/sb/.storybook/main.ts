@@ -1,11 +1,16 @@
+// import * as React from 'react';
 import * as path from 'path';
-// import type { StorybookConfig } from '@storybook/core-common';
-import { mergeConfig } from 'vite';
-import type { StorybookViteConfig } from '@storybook/builder-vite';
+import type { StorybookConfig } from '@storybook/core-common';
+import type { RuleSetRule } from 'webpack';
+
+function isRuleSetRule(rule: RuleSetRule | '...' | undefined): rule is RuleSetRule {
+  if (!rule) return false;
+  return typeof rule === 'object';
+}
 
 const toPath = (_path: string) => path.join(process.cwd(), _path);
 
-const config: StorybookViteConfig = {
+const config: StorybookConfig = {
   stories: ['../stories/**/*.stories.@(js|jsx|ts|tsx)'],
   addons: [
     '@storybook/addon-links',
@@ -15,8 +20,7 @@ const config: StorybookViteConfig = {
   ],
   framework: '@storybook/react',
   core: {
-    // builder: '@storybook/builder-webpack5',
-    builder: '@storybook/builder-vite',
+    builder: '@storybook/builder-webpack5',
   },
   features: {
     storyStoreV7: true,
@@ -39,17 +43,39 @@ const config: StorybookViteConfig = {
       */
     },
   },
-  async viteFinal(config, { configType }) {
-    // return the customized config
-    return mergeConfig(config, {
-      // customize the Vite config here
+  async webpackFinal(config) {
+    /*
+    // Use correct react-dom depending on React version.
+    if (parseInt(React.version) <= 18) {
+      config.externals = ['react-dom/client'];
+    }
+    */
+    const rule = config.module?.rules?.[0];
+    if (isRuleSetRule(rule)) {
+      // Transpile Gatsby module because Gatsby includes un-transpiled ES6 code.
+      rule.exclude = [/node_modules\/(?!(gatsby|gatsby-script)\/)/];
+
+      // Remove core-js to prevent issues with Storybook
+      rule.exclude = [/core-js/];
+      // Use babel-plugin-remove-graphql-queries to remove static queries from components when rendering in storybook
+      rule.use?.[0].options.plugins.push(
+        require.resolve('babel-plugin-remove-graphql-queries')
+      );
+    }
+
+    // config.resolve?.mainFields = ['browser', 'module', 'main'];
+    return {
+      ...(config || {}),
       resolve: {
+        ...(config.resolve || {}),
+        mainFields: ['browser', 'module', 'main'],
         alias: {
+          ...(config.resolve?.alias || {}),
           '@emotion/core': toPath('node_modules/@emotion/react'),
           'emotion-theming': toPath('node_modules/@emotion/react'),
         },
       },
-    });
+    };
   },
 };
 
