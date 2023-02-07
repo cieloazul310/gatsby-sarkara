@@ -1,83 +1,62 @@
 import * as React from 'react';
-import { VStack, Heading, Text } from '@chakra-ui/react';
-import { Paper } from '@cieloazul310/sarkara-components';
+import { VStack, Text, useToken } from '@chakra-ui/react';
+import {
+  Paper,
+  Paragraph,
+  H2,
+  H3,
+  type PaperProps,
+} from '@cieloazul310/sarkara-components';
 
 export default {
   title: 'Paper',
   component: Paper,
 };
 
+function Article({ colorSchemes }: PaperProps) {
+  const [primary] = useToken('colors', [`${colorSchemes}.400`]);
+  return (
+    <Paper
+      as="article"
+      colorSchemes={colorSchemes}
+      sx={{ '--chakra-colors-primary-400': primary }}
+    >
+      <H2>{colorSchemes}</H2>
+      <Paragraph>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec quam
+        quis nulla dignissim finibus. Morbi aliquam quam ut efficitur feugiat.
+        Duis viverra elit eu diam tincidunt lobortis. Proin lorem justo,
+        faucibus et mollis ut, lobortis nec nisi. Ut nisi mauris, varius nec
+        metus id, rhoncus scelerisque nisl. Morbi leo urna, pretium quis maximus
+        ut, suscipit at arcu. Maecenas ultrices, risus ac mattis malesuada,
+        risus risus aliquet ex, ac condimentum ex enim eget libero.
+      </Paragraph>
+      <H3>Heading 3</H3>
+      <Paragraph>
+        Sed fermentum rutrum urna, vitae suscipit nunc tempus eget. Orci varius
+        natoque penatibus et magnis dis parturient montes, nascetur ridiculus
+        mus. Suspendisse luctus mattis dui, quis eleifend enim convallis eget.
+        Phasellus nec luctus leo.
+      </Paragraph>
+    </Paper>
+  );
+}
+
 export function Basic() {
   return (
-    <Paper colorScheme="green">
+    <Paper>
       <Text>Paper</Text>
     </Paper>
   );
 }
 
 export function ColorSchemes() {
+  const colors = ['blue', 'cyan', 'gray', 'green', 'orange', 'pink', 'purple', 'red', 'teal', 'yellow'];
   return (
     <VStack gap={2} align="stretch" p={2}>
-      <Paper colorScheme="blue" as="article">
-        <Heading as="h2" size="md">
-          Blue
-        </Heading>
-        <Text>Text</Text>
-      </Paper>
-      <Paper colorScheme="cyan" as="article">
-        <Heading as="h2" size="md">
-          Cyan
-        </Heading>
-        <Text>Text</Text>
-      </Paper>
-      <Paper colorScheme="gray" as="article">
-        <Heading as="h2" size="md">
-          Gray
-        </Heading>
-        <Text>Text</Text>
-      </Paper>
-      <Paper colorScheme="green" as="article">
-        <Heading as="h2" size="md">
-          Green
-        </Heading>
-        <Text>Text</Text>
-      </Paper>
-      <Paper colorScheme="orange" as="article">
-        <Heading as="h2" size="md">
-          Orange
-        </Heading>
-        <Text>Text</Text>
-      </Paper>
-      <Paper colorScheme="pink" as="article">
-        <Heading as="h2" size="md">
-          Pink
-        </Heading>
-        <Text>Text</Text>
-      </Paper>
-      <Paper colorScheme="purple" as="article">
-        <Heading as="h2" size="md">
-          Purple
-        </Heading>
-        <Text>Text</Text>
-      </Paper>
-      <Paper colorScheme="red" as="article">
-        <Heading as="h2" size="md">
-          Red
-        </Heading>
-        <Text>Text</Text>
-      </Paper>
-      <Paper colorScheme="teal" as="article">
-        <Heading as="h2" size="md">
-          Teal
-        </Heading>
-        <Text>Text</Text>
-      </Paper>
-      <Paper colorScheme="yellow" as="article">
-        <Heading as="h2" size="md">
-          Yellow
-        </Heading>
-        <Text>Text</Text>
-      </Paper>
+      {colors.map((color) => (
+        <Article key={color} colorSchemes={color} />
+      ))}
     </VStack>
   );
 }

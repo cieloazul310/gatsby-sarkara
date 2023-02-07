@@ -9,7 +9,7 @@ export default {
 
 export function Basic() {
   return (
-    <PaperButton colorScheme="green">
+    <PaperButton>
       <Text>PaperButton</Text>
     </PaperButton>
   );

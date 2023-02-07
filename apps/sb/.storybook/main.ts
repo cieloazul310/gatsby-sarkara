@@ -1,4 +1,3 @@
-// import * as React from 'react';
 import * as path from 'path';
 import type { StorybookConfig } from '@storybook/core-common';
 import type { RuleSetRule } from 'webpack';

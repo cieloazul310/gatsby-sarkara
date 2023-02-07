@@ -1,11 +1,10 @@
 import * as React from 'react';
 import { ChakraProvider, extendTheme, useColorMode } from '@chakra-ui/react';
 import type { StoryFn, StoryContext } from '@storybook/react';
-import defauktTheme from './themes';
+import defaultTheme from './themes';
 
 function ColorModeHandler({ themeKey }: { themeKey: any }) {
   const { colorMode, toggleColorMode } = useColorMode();
-  console.log(colorMode);
   React.useEffect(() => {
     if (colorMode !== themeKey) {
       toggleColorMode();
@@ -19,7 +18,7 @@ export function withChakra(Story: StoryFn, context: StoryContext) {
   const theme = React.useMemo(
     () =>
       extendTheme({
-        ...defauktTheme,
+        ...defaultTheme,
         config: {
           initialColorMode: themeKey === 'dark' ? 'dark' : 'light',
         },
