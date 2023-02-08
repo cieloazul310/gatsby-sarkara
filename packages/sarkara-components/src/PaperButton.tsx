@@ -12,7 +12,6 @@ function PaperButton({
   rounded = 'xl',
   p = [4, 8],
   minHeight = '48px',
-  borderWidth = '1px',
   ...props
 }: PaperButtonProps) {
   const { colorMode } = useColorMode();
@@ -28,7 +27,6 @@ function PaperButton({
       p={p}
       minHeight={minHeight}
       bg={bg}
-      borderWidth={borderWidth}
       borderColor={hovered}
       _hover={{ bg: hovered, textDecoration: 'none', ...props._hover }}
       {...props}

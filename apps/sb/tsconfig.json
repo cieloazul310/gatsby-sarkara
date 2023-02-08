@@ -6,6 +6,6 @@
       "module": "CommonJS"
     }
   },
-  "include": ["stories", ".storybook"],
+  "include": ["stories", "components", ".storybook"],
   "exclude": ["node_modules"]
 }

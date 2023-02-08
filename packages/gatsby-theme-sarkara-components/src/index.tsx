@@ -3,4 +3,5 @@ export {
   default as PaperButtonLink,
   type PaperButtonLinkProps,
 } from './PaperButtonLink';
+export { default as Seo, type SeoProps } from './Seo';
 export * from './utils';

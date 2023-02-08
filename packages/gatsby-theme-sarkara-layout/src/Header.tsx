@@ -8,6 +8,7 @@ import {
   Button,
   IconButton,
   useColorMode,
+  useColorModeValue,
 } from '@chakra-ui/react';
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 import {
@@ -15,15 +16,14 @@ import {
   useSiteMetadata,
 } from '@cieloazul310/gatsby-theme-sarkara-components';
 import { Header as SarkaraHeader } from '@cieloazul310/sarkara-layout';
-import useGradientBox from './useGradientBox';
 
 function Header() {
   const { title } = useSiteMetadata();
-  const { color, bgGradient } = useGradientBox();
-  const { colorMode, toggleColorMode } = useColorMode();
+  const { toggleColorMode } = useColorMode();
+  const icon = useColorModeValue(<MoonIcon />, <SunIcon />);
 
   return (
-    <SarkaraHeader color={color} bgGradient={bgGradient}>
+    <SarkaraHeader>
       <Box py={2}>
         <Link
           href="/"
@@ -50,7 +50,7 @@ function Header() {
         </Button>
         <IconButton
           onClick={toggleColorMode}
-          icon={colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
+          icon={icon}
           aria-label="toggle color mode"
         />
       </ButtonGroup>

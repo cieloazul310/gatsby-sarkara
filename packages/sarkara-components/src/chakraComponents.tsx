@@ -17,15 +17,28 @@ import { useAlpha, usePrimaryToken, useSecondaryToken } from './utils';
 const ChakraImg = chakra('img');
 const ChakraIframe = chakra('iframe');
 
+const firstStyle = {
+  mt: 4,
+};
+
 export function Paragraph(props: Record<string, any>) {
   return <Text my={4} {...props} />;
 }
 
-export function H1(props: Record<string, any>) {
-  return <Heading as="h1" mt={8} mb={4} size="xl" {...props} />;
+export function H1({ _first, ...props }: Record<string, any>) {
+  return (
+    <Heading
+      as="h1"
+      mt={8}
+      mb={8}
+      size="xl"
+      _first={{ ..._first, ...firstStyle }}
+      {...props}
+    />
+  );
 }
 
-export function H2(props: Record<string, any>) {
+export function H2({ _first, ...props }: Record<string, any>) {
   const borderBottomColor = usePrimaryToken(400);
   return (
     <Heading
@@ -35,17 +48,27 @@ export function H2(props: Record<string, any>) {
       size="lg"
       borderBottomWidth="1px"
       borderBottomColor={borderBottomColor}
+      _first={{ ..._first, ...firstStyle }}
       {...props}
     />
   );
 }
 
-export function H3(props: Record<string, any>) {
-  return <Heading as="h3" mt={8} mb={4} size="md" {...props} />;
+export function H3({ _first, ...props }: Record<string, any>) {
+  return (
+    <Heading
+      as="h3"
+      mt={8}
+      mb={4}
+      size="md"
+      _first={{ ..._first, ...firstStyle }}
+      {...props}
+    />
+  );
 }
 
-export function H4(props: Record<string, any>) {
-  return <Heading as="h4" mt={8} mb={4} size="sm" {...props} />;
+export function H4({ _first, ...props }: Record<string, any>) {
+  return <Heading as="h4" mt={4} mb={4} size="sm" {...props} />;
 }
 
 export function H5(props: Record<string, any>) {
@@ -53,11 +76,13 @@ export function H5(props: Record<string, any>) {
 }
 
 export function H6(props: Record<string, any>) {
-  return <Heading as="h6" mt={4} mb={4} size="sm" {...props} />;
+  return (
+    <Heading as="h6" mt={4} mb={4} size="sm" fontWeight="normal" {...props} />
+  );
 }
 
 export function Hr(props: Record<string, any>) {
-  return <Divider my={4} {...props} />;
+  return <Divider my={8} {...props} />;
 }
 
 export function Ul(props: Record<string, any>) {

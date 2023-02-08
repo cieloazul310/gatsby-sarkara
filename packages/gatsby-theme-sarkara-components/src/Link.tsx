@@ -25,7 +25,7 @@ function Link<TState = Record<string, unknown>>({
 }: LinkProps) {
   const { colorMode } = useColorMode();
   const external = useIsExternal(href);
-  const shade = colorMode === 'light' ? 700 : 200;
+  const shade = colorMode === 'light' ? 500 : 200;
   const token = usePrimaryToken(shade);
 
   if (!external) {

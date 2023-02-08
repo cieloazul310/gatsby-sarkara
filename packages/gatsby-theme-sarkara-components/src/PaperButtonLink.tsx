@@ -22,7 +22,6 @@ function PaperButtonLink<TState = Record<string, unknown>>({
   rounded = 'xl',
   p = [4, 8],
   minHeight = '48px',
-  borderWidth = '1px',
   ...props
 }: PaperButtonLinkProps<TState>) {
   const { colorMode } = useColorMode();
@@ -42,7 +41,6 @@ function PaperButtonLink<TState = Record<string, unknown>>({
         p={p}
         minHeight={minHeight}
         bg={bg}
-        borderWidth={borderWidth}
         borderColor={hovered}
         _hover={{ bg: hovered, textDecoration: 'none', ...props._hover }}
         {...props}
@@ -59,7 +57,6 @@ function PaperButtonLink<TState = Record<string, unknown>>({
       p={p}
       minHeight={minHeight}
       bg={bg}
-      borderWidth={borderWidth}
       borderColor={hovered}
       _hover={{ bg: hovered, textDecoration: 'none', ...props._hover }}
       href={href}
