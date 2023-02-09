@@ -1,14 +1,16 @@
+/* eslint react/jsx-props-no-spreading: warn */
 import * as React from 'react';
-// import { withPrefix } from 'gatsby';
 import {
   BasicLayout,
   type BasicLayoutProps,
 } from '@cieloazul310/sarkara-layout';
-// import { PaperButtonLink } from '@cieloazul310/gatsby-theme-sarkara-components';
+import { PaperButtonLink } from '@cieloazul310/gatsby-theme-sarkara-components';
 // import { useLocation } from '@reach/router';
 import Header from './Header';
 import Jumbotron from './Jumbotron';
 import Sidebar from './Sidebar';
+import DrawerMenu from './DrawerMenu';
+import Footer from './Footer';
 
 export type SarkaraLayoutProps = BasicLayoutProps;
 
@@ -19,8 +21,11 @@ export function SarkaraLayout({
   description,
   sidebarContents,
   children,
+  footer,
+  ...props
 }: SarkaraLayoutProps) {
   // const { pathname } = useLocation();
+  // console.log(pathname);
   return (
     <BasicLayout
       title={title}
@@ -29,13 +34,12 @@ export function SarkaraLayout({
         jumbotron ?? <Jumbotron title={title} description={description} />
       }
       sidebarContents={<Sidebar sidebarContents={sidebarContents} />}
+      drawerContents={<DrawerMenu />}
+      footer={footer ?? <Footer />}
+      {...props}
     >
       {children}
-      {/*
-      pathname !== withPrefix('/') ? (
-        <PaperButtonLink href="/">トップページ</PaperButtonLink>
-      ) : null
-      */}
+      <PaperButtonLink href="/">Top Page</PaperButtonLink>
     </BasicLayout>
   );
 }

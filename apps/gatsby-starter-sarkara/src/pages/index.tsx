@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { SarkaraLayout, H1, Paragraph, Paper, Seo } from '@cieloazul310/gatsby-theme-sarkara';
+import { SarkaraLayout, H2, Paragraph, Paper, Seo } from '@cieloazul310/gatsby-theme-sarkara';
 
 function IndexPage() {
   return (
     <SarkaraLayout title="Gatsby Sarkara">
-      <Paper>
-        <H1>Gatsby Starter Sarkara</H1>
+      <Paper as="article">
+        <H2>Gatsby Starter Sarkara</H2>
         <Paragraph>Chakra UI Extension</Paragraph>
       </Paper>
     </SarkaraLayout>
