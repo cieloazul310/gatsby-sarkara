@@ -15,14 +15,14 @@
   "author": "cieloazul310",
   "license": "ISC",
   "scripts": {
+    "turbo": "turbo run lint test build",
     "dev": "turbo run dev --parallel",
     "build": "turbo run build",
     "lint": "turbo run lint",
+    "test": "turbo run test",
     "format": "prettier \"{packages,apps}/*/src/**.{js,jsx,ts,tsx}\" --parser typescript --write",
-    "eslint": "eslint packages/*/src/* --fix --ignore-pattern \"**/stories/**/*\" && eslint apps/ --fix",
     "prepare": "husky install",
-    "lint-staged": "lint-staged",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint-staged": "lint-staged"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.4.2",

@@ -16,6 +16,7 @@ import {
   PaperButton,
   MenuRenderer,
   type Menu,
+  type MenuItem,
   type MenuGroupWrapperProps,
 } from '@cieloazul310/sarkara-components';
 
@@ -47,14 +48,16 @@ function Wrapper({ children, title }: MenuGroupWrapperProps) {
   );
 }
 
+function renderBasicMenuItem(item: MenuItem) {
+  return <PaperButton key={item.path}>{item.title}</PaperButton>;
+}
+
 export function Basic() {
   return (
     <VStack as="nav" spacing={4} align="stretch">
       <MenuRenderer
         menu={menu}
-        menuItem={(item) => (
-          <PaperButton key={item.path}>{item.title}</PaperButton>
-        )}
+        menuItem={renderBasicMenuItem}
         MenuGroupWrapper={Wrapper}
       />
     </VStack>
@@ -66,9 +69,7 @@ export function Nested() {
     <VStack as="nav" spacing={4} align="stretch">
       <MenuRenderer
         menu={nestedMenu}
-        menuItem={(item) => (
-          <PaperButton key={item.path}>{item.title}</PaperButton>
-        )}
+        menuItem={renderBasicMenuItem}
         MenuGroupWrapper={Wrapper}
       />
     </VStack>
@@ -81,16 +82,20 @@ const colorMenu: Menu<{ color: string }> = [
   { title: 'Page 3', path: '/page-3', color: 'orange' },
 ];
 
+function renderColorsMenuItem(item: MenuItem<{ color: string }>) {
+  return (
+    <PaperButton key={item.path} colorScheme={item.color}>
+      {item.title}
+    </PaperButton>
+  );
+}
+
 export function Colors() {
   return (
     <VStack as="nav" spacing={4} align="stretch">
       <MenuRenderer
         menu={colorMenu}
-        menuItem={(item) => (
-          <PaperButton key={item.path} colorScheme={item.color}>
-            {item.title}
-          </PaperButton>
-        )}
+        menuItem={renderColorsMenuItem}
         MenuGroupWrapper={Wrapper}
       />
     </VStack>
@@ -113,17 +118,21 @@ function WithAccordionWrapper({ children, title }: MenuGroupWrapperProps) {
   );
 }
 
+function renderListItem(item: MenuItem) {
+  return (
+    <ListItem key={item.path}>
+      <ChakraLink>{item.title}</ChakraLink>
+    </ListItem>
+  );
+}
+
 export function WithAccordion() {
   return (
     <Accordion>
       <List>
         <MenuRenderer
           menu={nestedMenu}
-          menuItem={(item) => (
-            <ListItem key={item.path}>
-              <ChakraLink>{item.title}</ChakraLink>
-            </ListItem>
-          )}
+          menuItem={renderListItem}
           MenuGroupWrapper={WithAccordionWrapper}
         />
       </List>

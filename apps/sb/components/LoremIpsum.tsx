@@ -124,7 +124,7 @@ export function LoremIpsum() {
         </Paragraph>
       </Blockquote>
       <H4>Example Code</H4>
-      <CodeBlock>import * as React from 'react';</CodeBlock>
+      <CodeBlock>{`import * as React from 'react';`}</CodeBlock>
       <Paragraph>
         Lorem <Code>Ipsum</Code> dolor sit amet, consectetur adipiscing elit.
       </Paragraph>

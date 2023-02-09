@@ -4,6 +4,10 @@
     "build": {
       "dependsOn": ["^build"]
     },
+    "test": {
+      "dependsOn": ["build"],
+      "inputs": ["packages/*/src/**/*.tsx", "packages/*/**/*.js"]
+    },
     "lint": {},
     "dev": {
       "cache": false

@@ -132,6 +132,7 @@ dist
 # build
 packages/*/lib
 apps/*/public
+apps/*/storybook-static
 
 # turborepo
 .turbo

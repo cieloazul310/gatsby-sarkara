@@ -1,10 +1,28 @@
 import * as path from 'path';
 import type { StorybookConfig } from '@storybook/core-common';
-import type { RuleSetRule } from 'webpack';
+import type { RuleSetRule, RuleSetUseItem } from 'webpack';
 
-function isRuleSetRule(rule: RuleSetRule | '...' | undefined): rule is RuleSetRule {
+function isRuleSetRule(
+  rule: RuleSetRule | '...' | undefined
+): rule is RuleSetRule {
   if (!rule) return false;
   return typeof rule === 'object';
+}
+
+function isRuleSetUseItemArray(use: any): use is RuleSetUseItem[] {
+  if (!use) return false;
+  if (typeof use !== 'object') return false;
+  return true;
+}
+
+function isRuleSetUseItemObject(
+  ruleSetUseItem: RuleSetUseItem
+): ruleSetUseItem is {
+  ident?: string;
+  loader?: string;
+  options?: string | { [index: string]: any };
+} {
+  return typeof ruleSetUseItem === 'object';
 }
 
 const toPath = (_path: string) => path.join(process.cwd(), _path);
@@ -42,14 +60,14 @@ const config: StorybookConfig = {
       */
     },
   },
-  async webpackFinal(config) {
+  async webpackFinal(baseConfig) {
     /*
     // Use correct react-dom depending on React version.
     if (parseInt(React.version) <= 18) {
       config.externals = ['react-dom/client'];
     }
     */
-    const rule = config.module?.rules?.[0];
+    const rule = baseConfig.module?.rules?.[0];
     if (isRuleSetRule(rule)) {
       // Transpile Gatsby module because Gatsby includes un-transpiled ES6 code.
       rule.exclude = [/node_modules\/(?!(gatsby|gatsby-script)\/)/];
@@ -57,19 +75,26 @@ const config: StorybookConfig = {
       // Remove core-js to prevent issues with Storybook
       rule.exclude = [/core-js/];
       // Use babel-plugin-remove-graphql-queries to remove static queries from components when rendering in storybook
-      rule.use?.[0].options.plugins.push(
-        require.resolve('babel-plugin-remove-graphql-queries')
-      );
+      if (
+        isRuleSetUseItemArray(rule.use) &&
+        isRuleSetUseItemObject(rule.use[0])
+      ) {
+        const { options } = rule.use[0];
+        if (typeof options === 'object') {
+          options.plugins.push(
+            require.resolve('babel-plugin-remove-graphql-queries')
+          );
+        }
+      }
     }
 
-    // config.resolve?.mainFields = ['browser', 'module', 'main'];
     return {
-      ...(config || {}),
+      ...(baseConfig || {}),
       resolve: {
-        ...(config.resolve || {}),
+        ...(baseConfig.resolve || {}),
         mainFields: ['browser', 'module', 'main'],
         alias: {
-          ...(config.resolve?.alias || {}),
+          ...(baseConfig.resolve?.alias || {}),
           '@emotion/core': toPath('node_modules/@emotion/react'),
           'emotion-theming': toPath('node_modules/@emotion/react'),
         },

@@ -9,7 +9,7 @@
     "clean": "gatsby clean",
     "build": "gatsby build --prefix-paths",
     "serve": "gatsby serve -o --prefix-paths",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint src/*"
   },
   "keywords": [],
   "author": "",
@@ -30,6 +30,8 @@
   },
   "devDependencies": {
     "@types/react": "^18.0.27",
+    "eslint": "^8.32.0",
+    "eslint-config-custom": "workspace:^1.0.0",
     "tsconfig": "workspace:*",
     "typescript": "^4.9.4"
   }
