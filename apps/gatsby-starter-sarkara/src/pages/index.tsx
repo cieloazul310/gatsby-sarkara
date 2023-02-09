@@ -1,15 +1,19 @@
 import * as React from 'react';
-import { Box, VStack, Heading, Text } from '@chakra-ui/react';
+import { SarkaraLayout, H2, Paragraph, Paper, Seo } from '@cieloazul310/gatsby-theme-sarkara';
 
 function IndexPage() {
   return (
-    <VStack align="stretch" gap={2} px={2}>
-      <Box bg="blue.50" rounded="xl" p={4}>
-        <Heading as="h1" mb={2}>Gatsby Starter Sarkara</Heading>
-        <Text>Chakra UI Extension</Text>
-      </Box>
-    </VStack>
+    <SarkaraLayout title="Gatsby Sarkara">
+      <Paper as="article">
+        <H2>Gatsby Starter Sarkara</H2>
+        <Paragraph>Chakra UI Extension</Paragraph>
+      </Paper>
+    </SarkaraLayout>
   );
 }
 
 export default IndexPage;
+
+export function Head() {
+  return <Seo />;
+}

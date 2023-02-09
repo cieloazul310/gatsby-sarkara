@@ -5,8 +5,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "develop": "gatsby develop -o",
+    "dev": "gatsby develop -o",
     "clean": "gatsby clean",
+    "build": "gatsby build --prefix-paths",
+    "serve": "gatsby serve -o --prefix-paths",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -17,6 +19,7 @@
     "@chakra-ui/icons": "^2.0.17",
     "@chakra-ui/react": "^2.4.9",
     "@cieloazul310/gatsby-theme-sarkara": "workspace:^1.0.0",
+    "@cieloazul310/gatsby-theme-sarkara-layout": "workspace:^1.0.0",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "framer-motion": "^8.5.0",

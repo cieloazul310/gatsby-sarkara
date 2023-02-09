@@ -131,7 +131,7 @@ dist
 
 # build
 packages/*/lib
-starters/*/public
+apps/*/public
 
 # turborepo
 .turbo

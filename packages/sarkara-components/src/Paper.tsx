@@ -1,24 +1,18 @@
 /* eslint react/jsx-props-no-spreading: warn */
 /* eslint no-underscore-dangle: warn */
 import * as React from 'react';
-import {
-  Box,
-  useColorMode,
-  type BoxProps,
-  type ThemeTypings,
-} from '@chakra-ui/react';
-import useAlpha from './utils/useAlpha';
+import { Box, type BoxProps, type ThemeTypings } from '@chakra-ui/react';
+import { useAlpha, usePrimaryToken } from './utils';
 
 export type PaperProps = {
-  colorScheme: ThemeTypings['colorSchemes'];
+  colorSchemes?: ThemeTypings['colorSchemes'];
   hover?: boolean;
 } & BoxProps;
 
-function Paper({ colorScheme, hover = false, ...props }: PaperProps) {
-  const { colorMode } = useColorMode();
-  const isLightMode = colorMode === 'light';
-  const bg = useAlpha(`${colorScheme}.600`, isLightMode ? 0.08 : 0.16);
-  const hovered = useAlpha(`${colorScheme}.600`, isLightMode ? 0.16 : 0.32);
+function Paper({ colorSchemes, hover = false, ...props }: PaperProps) {
+  const token = usePrimaryToken(600);
+  const bg = useAlpha(colorSchemes ? `${colorSchemes}.600` : token, 0.08);
+  const hovered = useAlpha(colorSchemes ? `${colorSchemes}.600` : token, 0.16);
   return (
     <Box
       rounded="xl"
@@ -32,6 +26,7 @@ function Paper({ colorScheme, hover = false, ...props }: PaperProps) {
 }
 
 Paper.defaultProps = {
+  colorSchemes: undefined,
   hover: false,
 };
 

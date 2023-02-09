@@ -37,6 +37,10 @@ function BasicLayout({
 }: BasicLayoutProps) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef<HTMLButtonElement | null>(null);
+  const fabDisplay = React.useMemo(() => {
+    if (disableSidebar) return 'block';
+    return ['block', 'block', 'none'];
+  }, [disableSidebar]);
 
   return (
     <>
@@ -81,7 +85,7 @@ function BasicLayout({
         icon={<HamburgerIcon />}
         size="lg"
         aria-label="Menu"
-        display={['block', 'block', 'none']}
+        display={fabDisplay}
         position="fixed"
         bottom={4}
         right={4}

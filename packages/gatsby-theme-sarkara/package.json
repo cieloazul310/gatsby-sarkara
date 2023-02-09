@@ -3,6 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "types": "index.d.ts",
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "gatsby-config.js"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -11,6 +17,7 @@
   "license": "ISC",
   "dependencies": {
     "@cieloazul310/gatsby-theme-sarkara-components": "workspace:^1.0.0",
+    "@cieloazul310/gatsby-theme-sarkara-layout": "workspace:^1.0.0",
     "@cieloazul310/sarkara-components": "workspace:^1.0.0",
     "@cieloazul310/sarkara-layout": "workspace:^1.0.0"
   },

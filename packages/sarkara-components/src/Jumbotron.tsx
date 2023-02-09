@@ -1,6 +1,7 @@
 /* eslint react/jsx-props-no-spreading: warn */
 import * as React from 'react';
 import { Box, Container, Heading, type BoxProps } from '@chakra-ui/react';
+import { useGradientBox } from './utils';
 
 export type JumbotronProps = BoxProps & {
   title?: string;
@@ -20,8 +21,16 @@ function Jumbotron({
   pb = 0,
   ...props
 }: JumbotronProps) {
+  const { color, bgGradient } = useGradientBox();
   return (
-    <Box as={as} height={height} px={px} {...props}>
+    <Box
+      as={as}
+      height={height}
+      px={px}
+      color={props.color ?? color}
+      bgGradient={props.bgGradient ?? bgGradient}
+      {...props}
+    >
       <Container
         display="flex"
         flexDirection={flexDirection}

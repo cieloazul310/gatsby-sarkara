@@ -1,6 +1,7 @@
 /* eslint react/jsx-props-no-spreading: warn */
 import * as React from 'react';
 import { Flex, type FlexProps } from '@chakra-ui/react';
+import { useGradientBox } from '@cieloazul310/sarkara-components';
 
 export type HeaderProps = FlexProps;
 
@@ -18,6 +19,7 @@ function Header({
   px = 4,
   ...props
 }: HeaderProps) {
+  const { bgGradient, color } = useGradientBox();
   return (
     <Flex
       as={as}
@@ -30,6 +32,8 @@ function Header({
       zIndex={zIndex}
       height={height}
       px={px}
+      bgGradient={props.bgGradient ?? bgGradient}
+      color={props.color ?? color}
       {...props}
     >
       {children}
