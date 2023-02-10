@@ -2,10 +2,10 @@
   "$schema": "https://turbo.build/schema.json",
   "pipeline": {
     "build": {
-      "dependsOn": ["^build"]
+      "dependsOn": ["^build"],
+      "outputs": ["lib", "storybook-static", "public"]
     },
     "test": {
-      "dependsOn": ["build"],
       "inputs": ["packages/*/src/**/*.tsx", "packages/*/**/*.js"]
     },
     "lint": {},
