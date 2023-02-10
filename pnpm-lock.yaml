@@ -61,6 +61,7 @@ importers:
 
   apps/sb:
     specifiers:
+      '@chakra-ui/icons': ^2.0.17
       '@chakra-ui/react': ^2.4.9
       '@chakra-ui/storybook-addon': ^4.0.16
       '@cieloazul310/gatsby-theme-sarkara-components': workspace:*
@@ -91,6 +92,7 @@ importers:
       typescript: ^4.9.3
       webpack: ^5.75.0
     dependencies:
+      '@chakra-ui/icons': 2.0.17_react@18.2.0
       '@chakra-ui/react': 2.4.9_ldho2is67tyoj4oiqudu5lhoj4
       '@cieloazul310/gatsby-theme-sarkara-components': link:../../packages/gatsby-theme-sarkara-components
       '@cieloazul310/sarkara-components': link:../../packages/sarkara-components

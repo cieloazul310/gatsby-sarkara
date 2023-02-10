@@ -1,17 +1,15 @@
+/* eslint react/jsx-props-no-spreading: warn */
 import * as React from 'react';
 import {
   Box,
   VStack,
   Heading,
-  Accordion,
-  AccordionItem,
-  AccordionButton,
-  AccordionPanel,
-  AccordionIcon,
-  List,
-  ListItem,
+  Text,
   Link as ChakraLink,
+  useDisclosure,
+  useColorModeValue,
 } from '@chakra-ui/react';
+import { ChevronDownIcon, ChevronUpIcon } from '@chakra-ui/icons';
 import {
   PaperButton,
   MenuRenderer,
@@ -32,9 +30,22 @@ const menu: Menu = [
 ];
 
 const nestedMenu: Menu = [
-  ...menu,
-  { title: 'Nested', items: menu },
-  { title: 'Nested-2', items: menu },
+  { title: 'Top', path: '/' },
+  { title: 'Page 2', path: '/page-2' },
+  {
+    title: 'Nested',
+    items: [
+      { title: 'Page 3', path: '/page-3' },
+      { title: 'Page 4', path: '/page-4' },
+    ],
+  },
+  {
+    title: 'Nested-2',
+    items: [
+      { title: 'page 5', path: '/page-5' },
+      { title: 'Page 6', path: '/page-6' },
+    ],
+  },
 ];
 
 function Wrapper({ children, title }: MenuGroupWrapperProps) {
@@ -103,39 +114,51 @@ export function Colors() {
 }
 
 function WithAccordionWrapper({ children, title }: MenuGroupWrapperProps) {
+  const { getDisclosureProps, getButtonProps, isOpen } = useDisclosure();
+  const disclosureProps = getDisclosureProps();
+  const buttonProps = getButtonProps();
+  const bgColor = useColorModeValue('gray.100', 'gray.700');
+  const icon = isOpen ? <ChevronUpIcon /> : <ChevronDownIcon />;
+
   return (
-    <AccordionItem>
-      <AccordionButton>
-        <Box as="span" flex="1" textAlign="left">
-          {title}
-        </Box>
-        <AccordionIcon />
-      </AccordionButton>
-      <AccordionPanel>
-        <List>{children}</List>
-      </AccordionPanel>
-    </AccordionItem>
+    <Box>
+      <Box
+        as="button"
+        {...buttonProps}
+        _hover={{ bgColor }}
+        p={2}
+        width="100%"
+        display="flex"
+        alignItems="center"
+      >
+        {icon}
+        <Text ml={2}>{title}</Text>
+      </Box>
+      <Box {...disclosureProps} pl={4}>
+        {children}
+      </Box>
+    </Box>
   );
 }
 
 function renderListItem(item: MenuItem) {
+  const bgColor = useColorModeValue('gray.100', 'gray.700');
+
   return (
-    <ListItem key={item.path}>
+    <Box key={item.path} p={2} _hover={{ bgColor }}>
       <ChakraLink>{item.title}</ChakraLink>
-    </ListItem>
+    </Box>
   );
 }
 
 export function WithAccordion() {
   return (
-    <Accordion>
-      <List>
-        <MenuRenderer
-          menu={nestedMenu}
-          menuItem={renderListItem}
-          MenuGroupWrapper={WithAccordionWrapper}
-        />
-      </List>
-    </Accordion>
+    <VStack spacing={2} align="stretch">
+      <MenuRenderer
+        menu={nestedMenu}
+        menuItem={renderListItem}
+        MenuGroupWrapper={WithAccordionWrapper}
+      />
+    </VStack>
   );
 }
