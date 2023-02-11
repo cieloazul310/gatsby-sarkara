@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "dev": "start-storybook -p 6006",
+    "start": "start-storybook -p 6006",
     "build": "build-storybook",
     "lint": "eslint .storybook components stories"
   },
