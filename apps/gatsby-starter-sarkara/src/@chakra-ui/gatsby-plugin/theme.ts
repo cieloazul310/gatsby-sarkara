@@ -7,6 +7,7 @@ const theme = {
   },
   sizes: {
     header: '56px',
+    // content: 'container.xl',
   },
 };
 

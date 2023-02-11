@@ -3,7 +3,7 @@ import { SarkaraLayout, H2, Paragraph, Paper, Seo } from '@cieloazul310/gatsby-t
 
 function IndexPage() {
   return (
-    <SarkaraLayout title="Gatsby Sarkara">
+    <SarkaraLayout title="Gatsby Sarkara" description="A Gatsby theme based on Chakra UI.">
       <Paper as="article">
         <H2>Gatsby Starter Sarkara</H2>
         <Paragraph>Chakra UI Extension</Paragraph>

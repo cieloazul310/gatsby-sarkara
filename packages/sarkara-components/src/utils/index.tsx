@@ -1,4 +1,5 @@
 export { default as useAlpha } from './useAlpha';
+export { default as useContentMaxWidth } from './useContentMaxWidth';
 export { default as useGradient } from './useGradient';
 export { default as useGradientBox } from './useGradientBox';
 export { default as useHeaderHeight } from './useHeaderHeight';

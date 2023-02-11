@@ -2,7 +2,7 @@
 import * as React from 'react';
 import { Box, Container, Heading, type BoxProps } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
-import { useGradientBox, useJumbotronSizes } from './utils';
+import { useGradientBox, useContentMaxWidth, useJumbotronSizes } from './utils';
 
 export type JumbotronProps = BoxProps & {
   title?: string;
@@ -25,8 +25,8 @@ function Jumbotron({
   ...props
 }: JumbotronProps) {
   const { color, bgGradient } = useGradientBox();
+  const contentMaxWidth = useContentMaxWidth();
   const sizes = useJumbotronSizes('480px');
-  console.log(sizes);
 
   return (
     <Box
@@ -44,7 +44,7 @@ function Jumbotron({
         alignItems={alignItems}
         justifyContent={justifyContent}
         height={height ?? sizes.height}
-        maxWidth="container.xl"
+        maxWidth={contentMaxWidth}
         pb={pb ?? sizes.pb}
         initial={!disableFade ? { opacity: 0 } : false}
         animate={{ opacity: 1 }}
