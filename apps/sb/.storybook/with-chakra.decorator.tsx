@@ -1,3 +1,4 @@
+/* eslint import/prefer-default-export: warn */
 import * as React from 'react';
 import { ChakraProvider, extendTheme, useColorMode } from '@chakra-ui/react';
 import type { StoryFn, StoryContext } from '@storybook/react';

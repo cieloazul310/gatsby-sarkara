@@ -1,16 +1,5 @@
 import * as React from 'react';
-import {
-  H1,
-  H2,
-  H3,
-  H4,
-  Hr,
-  Paragraph,
-  Blockquote,
-  Paper,
-  CodeBlock,
-  Code,
-} from '@cieloazul310/sarkara-components';
+import { Paper } from '@cieloazul310/sarkara-components';
 import { LoremIpsum, LoremIpsumJa } from '../components/LoremIpsum';
 
 export default {
@@ -22,7 +11,7 @@ export function Basic() {
 }
 
 export function BasicJa() {
-  return <LoremIpsumJa />
+  return <LoremIpsumJa />;
 }
 
 export function InPaper() {

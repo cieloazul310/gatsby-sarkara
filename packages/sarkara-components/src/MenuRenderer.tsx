@@ -1,32 +1,36 @@
 import * as React from 'react';
 
-export type Menu<T = Record<string, unknown>> = (MenuItem<T> | MenuGroup<T>)[];
-export type MenuItem<T = Record<string, unknown>> = {
+export type Menu<T extends object = Record<string, unknown>> = (
+  | MenuItem<T>
+  | MenuGroup<T>
+)[];
+export type MenuItem<T extends object = Record<string, unknown>> = {
   title: string;
   path: string;
 } & T;
-export type MenuGroup<T = Record<string, unknown>> = {
+export type MenuGroup<T extends object = Record<string, unknown>> = {
   title: string;
-  items: (MenuItem<T> | MenuGroup<T>)[];
+  items: MenuItem<T>[];
 };
 
-export function isMenuItem<T = Record<string, unknown>>(
+export function isMenuItem<T extends object = Record<string, unknown>>(
   item: MenuItem<T> | MenuGroup<T>
 ): item is MenuItem<T> {
   return Object.prototype.hasOwnProperty.call(item, 'path');
 }
 
-export type MenuGroupWrapperProps<T = Record<string, unknown>> = {
-  children: React.ReactNode;
-} & Partial<MenuGroup<T>>;
+export type MenuGroupWrapperProps<T extends object = Record<string, unknown>> =
+  {
+    children: React.ReactNode;
+  } & Partial<MenuGroup<T>>;
 
-export type MenuRendererProps<T = Record<string, unknown>> = {
+export type MenuRendererProps<T extends object = Record<string, unknown>> = {
   menu: Menu<T>;
   menuItem: (item: MenuItem<T>) => React.ReactNode;
   MenuGroupWrapper: (props: MenuGroupWrapperProps<T>) => JSX.Element;
 };
 
-export function MenuRenderer<T = Record<string, unknown>>({
+export function MenuRenderer<T extends object = Record<string, unknown>>({
   menu,
   menuItem,
   MenuGroupWrapper,
@@ -40,7 +44,7 @@ export function MenuRenderer<T = Record<string, unknown>>({
           title={item.title}
           items={item.items}
         >
-          {item.items.map((nestedItem) => renderer(nestedItem))}
+          {item.items.map((nestedItem) => menuItem(nestedItem))}
         </MenuGroupWrapper>
       );
     },

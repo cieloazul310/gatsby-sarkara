@@ -1,3 +1,5 @@
+/* eslint no-underscore-dangle: warn */
+/* eslint import/no-extraneous-dependencies: warn */
 // import { theme as baseTheme } from '@chakra-ui/react';
 import { action } from '@storybook/addon-actions';
 import { withChakra } from './with-chakra.decorator';
@@ -15,15 +17,15 @@ declare global {
 global.___loader = {
   enqueue: () => {},
   hovering: () => {},
-}
+};
 // This global variable prevents the "__BASE_PATH__ is not defined" error inside Storybook.
-global.__BASE_PATH__ = "/"
+global.__BASE_PATH__ = '/';
 
 // Navigating through a gatsby app using gatsby-link or any other gatsby component will use the `___navigate` method.
 // In Storybook, it makes more sense to log an action than doing an actual navigate. Check out the actions addon docs for more info: https://storybook.js.org/docs/react/essentials/actions
-window.___navigate = pathname => {
-  action("NavigateTo:")(pathname)
-}
+window.___navigate = (pathname) => {
+  action('NavigateTo:')(pathname);
+};
 
 /*
 const chakra = {

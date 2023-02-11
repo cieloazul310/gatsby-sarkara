@@ -7,7 +7,9 @@ import {
   Paragraph,
   Paper,
   Seo,
+  useAbsoluteUrl,
 } from '@cieloazul310/gatsby-theme-sarkara';
+import imageUrl from '../assets/bach.png';
 
 function PageTwo() {
   return (
@@ -52,5 +54,6 @@ function PageTwo() {
 export default PageTwo;
 
 export function Head() {
-  return <Seo />;
+  const image = useAbsoluteUrl(imageUrl);
+  return <Seo image={image} />;
 }

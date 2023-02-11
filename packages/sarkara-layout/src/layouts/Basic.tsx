@@ -8,7 +8,11 @@ import {
   useDisclosure,
 } from '@chakra-ui/react';
 import { HamburgerIcon } from '@chakra-ui/icons';
-import { Jumbotron } from '@cieloazul310/sarkara-components';
+import {
+  Jumbotron,
+  useContentMaxWidth,
+  useSidebarWidth,
+} from '@cieloazul310/sarkara-components';
 import { Header, Footer, DrawerContent } from '../components';
 
 export type BasicLayoutProps = React.PropsWithChildren<{
@@ -41,6 +45,8 @@ function BasicLayout({
     if (disableSidebar) return 'block';
     return ['block', 'block', 'none'];
   }, [disableSidebar]);
+  const contentMaxWidth = useContentMaxWidth();
+  const sidebarWidth = useSidebarWidth();
 
   return (
     <>
@@ -52,7 +58,7 @@ function BasicLayout({
           height={jumbotronHeight}
         />
       )}
-      <Container display="flex" py={4} px={2} maxWidth="container.xl">
+      <Container display="flex" py={4} px={2} maxWidth={contentMaxWidth}>
         <VStack
           flexGrow={1}
           spacing={4}
@@ -66,7 +72,7 @@ function BasicLayout({
           <VStack
             spacing={4}
             align="stretch"
-            width={[0, 0, '240px', '320px']}
+            width={sidebarWidth}
             display={['none', 'none', 'block']}
             px={2}
             pb={8}
