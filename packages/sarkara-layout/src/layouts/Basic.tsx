@@ -8,7 +8,7 @@ import {
   useDisclosure,
 } from '@chakra-ui/react';
 import { HamburgerIcon } from '@chakra-ui/icons';
-import { Jumbotron } from '@cieloazul310/sarkara-components';
+import { Jumbotron, useSidebarWidth } from '@cieloazul310/sarkara-components';
 import { Header, Footer, DrawerContent } from '../components';
 
 export type BasicLayoutProps = React.PropsWithChildren<{
@@ -41,6 +41,7 @@ function BasicLayout({
     if (disableSidebar) return 'block';
     return ['block', 'block', 'none'];
   }, [disableSidebar]);
+  const sidebarWidth = useSidebarWidth();
 
   return (
     <>
@@ -66,7 +67,7 @@ function BasicLayout({
           <VStack
             spacing={4}
             align="stretch"
-            width={[0, 0, '240px', '320px']}
+            width={sidebarWidth}
             display={['none', 'none', 'block']}
             px={2}
             pb={8}
