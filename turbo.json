@@ -6,7 +6,7 @@
       "outputs": ["lib", "storybook-static", "public"]
     },
     "test": {
-      "inputs": ["packages/*/src/**/*.tsx", "packages/*/**/*.js"]
+      "dependsOn": ["^build"]
     },
     "lint": {},
     "dev": {

@@ -25,7 +25,7 @@ export function useJumbotronHeight(
   }
   if (typeof defaultHeight === 'object') {
     if (Array.isArray(defaultHeight)) {
-      const [xs, ...defaultHeights] = defaultHeight;
+      const [, ...defaultHeights] = defaultHeight;
       return [jumbotronXsHeight, ...defaultHeights];
     }
     return {
