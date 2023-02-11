@@ -49,20 +49,21 @@ export function Accordion() {
   return (
     <Box>
       <Box {...buttonProps}>Open</Box>
-      <Box
-        as={motion.nav}
-        bg="gray.50"
-        animate={isOpen ? 'open' : 'closed'}
-        variants={variants}
-        {...disclosureProps}
-      >
-        <Box py={4}>Hi!</Box>
-        <Box py={4}>Hi!</Box>
-        <Box py={4}>Hi!</Box>
-        <Box py={4}>Hi!</Box>
-        <Box py={4}>Hi!</Box>
-        <Box py={4}>Hi!</Box>
-        <Box py={4}>Hi!</Box>
+      <Box {...disclosureProps}>
+        <Box
+          as={motion.nav}
+          bg="gray.100"
+          animate={isOpen ? 'open' : 'closed'}
+          variants={variants}
+        >
+          <Box py={4}>Hi!</Box>
+          <Box py={4}>Hi!</Box>
+          <Box py={4}>Hi!</Box>
+          <Box py={4}>Hi!</Box>
+          <Box py={4}>Hi!</Box>
+          <Box py={4}>Hi!</Box>
+          <Box py={4}>Hi!</Box>
+        </Box>
       </Box>
     </Box>
   );

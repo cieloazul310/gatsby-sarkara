@@ -5,11 +5,12 @@ import {
   VStack,
   Heading,
   Text,
+  Square,
   Link as ChakraLink,
   useDisclosure,
   useColorModeValue,
 } from '@chakra-ui/react';
-import { ChevronDownIcon, ChevronUpIcon } from '@chakra-ui/icons';
+import { ChevronUpIcon } from '@chakra-ui/icons';
 import {
   PaperButton,
   MenuRenderer,
@@ -17,6 +18,7 @@ import {
   type MenuItem,
   type MenuGroupWrapperProps,
 } from '@cieloazul310/sarkara-components';
+import { motion } from 'framer-motion';
 
 export default {
   title: 'MenuRenderer',
@@ -113,12 +115,33 @@ export function Colors() {
   );
 }
 
+function AccordionIcon({ isOpen }: { isOpen: boolean }) {
+  const variants = {
+    open: { transform: 'rotate(180deg)' },
+    closed: { transform: 'rotate(90deg)' },
+  };
+  return (
+    <Box mr={2}>
+      <Square
+        as={motion.div}
+        animate={isOpen ? 'open' : 'closed'}
+        variants={variants}
+      >
+        <ChevronUpIcon />
+      </Square>
+    </Box>
+  );
+}
+
 function WithAccordionWrapper({ children, title }: MenuGroupWrapperProps) {
   const { getDisclosureProps, getButtonProps, isOpen } = useDisclosure();
   const disclosureProps = getDisclosureProps();
   const buttonProps = getButtonProps();
   const bgColor = useColorModeValue('gray.100', 'gray.700');
-  const icon = isOpen ? <ChevronUpIcon /> : <ChevronDownIcon />;
+  const variants = {
+    open: { opacity: 1, height: 'auto' },
+    closed: { opacity: 0, height: 0 },
+  };
 
   return (
     <Box>
@@ -131,11 +154,13 @@ function WithAccordionWrapper({ children, title }: MenuGroupWrapperProps) {
         display="flex"
         alignItems="center"
       >
-        {icon}
-        <Text ml={2}>{title}</Text>
+        <AccordionIcon isOpen={isOpen} />
+        <Text>{title}</Text>
       </Box>
-      <Box {...disclosureProps} pl={4}>
-        {children}
+      <Box {...disclosureProps}>
+        <Box as={motion.nav} pl={4} animate={isOpen ? 'open' : 'closed'} variants={variants}>
+          {children}
+        </Box>
       </Box>
     </Box>
   );
