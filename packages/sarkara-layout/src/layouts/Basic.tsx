@@ -12,6 +12,7 @@ import {
   Jumbotron,
   useContentMaxWidth,
   useSidebarWidth,
+  usePrimaryToken,
 } from '@cieloazul310/sarkara-components';
 import { Header, Footer, DrawerContent } from '../components';
 
@@ -25,6 +26,7 @@ export type BasicLayoutProps = React.PropsWithChildren<{
   sidebarContents?: React.ReactNode;
   drawerContents?: React.ReactNode;
   disableSidebar?: boolean;
+  disableDrawer?: boolean;
 }>;
 
 function BasicLayout({
@@ -38,6 +40,7 @@ function BasicLayout({
   sidebarContents,
   drawerContents,
   disableSidebar = false,
+  disableDrawer = false,
 }: BasicLayoutProps) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef<HTMLButtonElement | null>(null);
@@ -48,46 +51,48 @@ function BasicLayout({
   const contentMaxWidth = useContentMaxWidth();
   const sidebarWidth = useSidebarWidth();
 
-  return (
-    <>
-      {header ?? <Header />}
-      {jumbotron ?? (
-        <Jumbotron
-          title={title}
-          description={description}
-          height={jumbotronHeight}
-        />
-      )}
-      <Container display="flex" py={4} px={2} maxWidth={contentMaxWidth}>
-        <VStack
-          flexGrow={1}
-          spacing={4}
-          align="stretch"
-          px={[0, 2]}
-          maxWidth="100%"
-        >
-          {children}
-        </VStack>
-        {!disableSidebar ? (
-          <VStack
-            spacing={4}
-            align="stretch"
-            width={sidebarWidth}
-            display={['none', 'none', 'block']}
-            px={2}
-            pb={8}
-            flexShrink={0}
-            position="sticky"
-            overflowY="auto"
-            top="calc(var(--chakra-sizes-header) + 1rem)"
-            right={0}
-          >
-            {sidebarContents}
-          </VStack>
-        ) : null}
-      </Container>
+  const basicLayoutHeader = React.useMemo(() => {
+    if (header) return header;
+    return <Header title={title} />;
+  }, [header, Header, title]);
+
+  const basicLayoutJumbotron = React.useMemo(() => {
+    if (jumbotron) return jumbotron;
+    return (
+      <Jumbotron
+        title={title}
+        description={description}
+        height={jumbotronHeight}
+      />
+    );
+  }, [jumbotron, Jumbotron, title, description, jumbotronHeight]);
+
+  const basicLayoutFooter = React.useMemo(() => {
+    if (footer) return footer;
+    return <Footer title={title} />;
+  }, [footer, Footer, title]);
+
+  const basicLayoutDrawer = React.useMemo(() => {
+    if (disableDrawer) return null;
+    return (
+      <Drawer
+        isOpen={isOpen}
+        placement="bottom"
+        onClose={onClose}
+        finalFocusRef={btnRef}
+      >
+        <DrawerOverlay />
+        <DrawerContent title={title}>{drawerContents}</DrawerContent>
+      </Drawer>
+    );
+  }, [disableDrawer, isOpen, onClose, btnRef, title, drawerContents]);
+
+  const primary = usePrimaryToken();
+  const basicLayoutButton = React.useMemo(() => {
+    if (disableDrawer) return null;
+    return (
       <IconButton
-        colorScheme="primary"
+        colorScheme={primary}
         icon={<HamburgerIcon />}
         size="lg"
         aria-label="Menu"
@@ -99,16 +104,49 @@ function BasicLayout({
         onClick={onOpen}
         ref={btnRef}
       />
-      <Drawer
-        isOpen={isOpen}
-        placement="bottom"
-        onClose={onClose}
-        finalFocusRef={btnRef}
+    );
+  }, [disableDrawer, primary, fabDisplay, onOpen, btnRef]);
+
+  const basicLayourSidebar = React.useMemo(() => {
+    if (disableSidebar) return null;
+    return (
+      <VStack
+        spacing={4}
+        align="stretch"
+        width={sidebarWidth}
+        display={['none', 'none', 'block']}
+        px={2}
+        pb={8}
+        flexShrink={0}
+        position="sticky"
+        overflowY="auto"
+        top="calc(var(--chakra-sizes-header) + 1rem)"
+        right={0}
       >
-        <DrawerOverlay />
-        <DrawerContent title={title}>{drawerContents}</DrawerContent>
-      </Drawer>
-      {footer ?? <Footer />}
+        {sidebarContents}
+      </VStack>
+    );
+  }, [disableSidebar, sidebarWidth, sidebarContents]);
+
+  return (
+    <>
+      {basicLayoutHeader}
+      {basicLayoutJumbotron}
+      <Container display="flex" py={4} px={2} maxWidth={contentMaxWidth}>
+        <VStack
+          flexGrow={1}
+          spacing={4}
+          align="stretch"
+          px={[0, 2]}
+          maxWidth="100%"
+        >
+          {children}
+        </VStack>
+        {basicLayourSidebar}
+      </Container>
+      {basicLayoutButton}
+      {basicLayoutDrawer}
+      {basicLayoutFooter}
     </>
   );
 }
@@ -122,6 +160,7 @@ BasicLayout.defaultProps = {
   sidebarContents: undefined,
   drawerContents: undefined,
   disableSidebar: false,
+  disableDrawer: false,
 };
 
 export default BasicLayout;

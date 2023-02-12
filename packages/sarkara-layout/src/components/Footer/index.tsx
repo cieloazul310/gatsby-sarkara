@@ -1,9 +1,18 @@
 /* eslint react/jsx-props-no-spreading: warn */
 import * as React from 'react';
-import { Flex, useColorModeValue, type FlexProps } from '@chakra-ui/react';
+import {
+  Flex,
+  Heading,
+  Text,
+  Link as ChakraLink,
+  useColorModeValue,
+  type FlexProps,
+} from '@chakra-ui/react';
 import { useGradient, usePrimaryToken } from '@cieloazul310/sarkara-components';
 
-export type FooterProps = FlexProps;
+export type FooterProps = FlexProps & {
+  title?: string;
+};
 
 function Footer({
   children,
@@ -12,6 +21,7 @@ function Footer({
   direction = 'column',
   py = 16,
   gap = 2,
+  title,
   ...props
 }: FooterProps) {
   const primaryLight = usePrimaryToken(300);
@@ -29,17 +39,30 @@ function Footer({
       bgGradient={bgGradient}
       {...props}
     >
-      {children}
+      {children ||
+        (title ? (
+          <>
+            <Heading as="h6" size="md">
+              {title}
+            </Heading>
+            <Text fontSize="md">
+              © {new Date().getFullYear()} {title} All rights reserved.
+            </Text>
+            <Text fontSize="sm">
+              Built with
+              {` `}
+              <ChakraLink href="https://www.gatsbyjs.com/" isExternal>
+                Gatsby
+              </ChakraLink>
+            </Text>
+          </>
+        ) : null)}
     </Flex>
   );
 }
 
 Footer.defaultProps = {
-  as: 'footer',
-  alignItems: 'center',
-  direction: 'column',
-  py: 16,
-  gap: 2,
+  title: undefined,
 };
 
 export default Footer;
