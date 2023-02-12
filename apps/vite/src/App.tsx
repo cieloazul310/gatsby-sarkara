@@ -1,10 +1,5 @@
 import * as React from 'react';
-import {
-  BasicLayout,
-  Paper,
-  H2,
-  Paragraph,
-} from '@cieloazul310/sarkara';
+import { BasicLayout, Paper, H2, Paragraph } from '@cieloazul310/sarkara';
 
 function App() {
   return (
