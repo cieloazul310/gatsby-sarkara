@@ -1,21 +1,15 @@
 {
-  "name": "@cieloazul310/gatsby-theme-sarkara",
+  "name": "@cieloazul310/sarkara",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "types": "index.d.ts",
-  "files": [
-    "index.js",
-    "index.d.ts",
-    "gatsby-config.js"
-  ],
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@cieloazul310/gatsby-theme-sarkara-components": "workspace:^1.0.0",
-    "@cieloazul310/gatsby-theme-sarkara-layout": "workspace:^1.0.0",
-    "@cieloazul310/sarkara": "workspace:^1.0.0"
+    "@cieloazul310/sarkara-components": "workspace:^1.0.0",
+    "@cieloazul310/sarkara-layout": "workspace:^1.0.0"
   },
   "peerDependencies": {
     "@chakra-ui/icons": "^2.0.0",
@@ -23,7 +17,6 @@
     "@emotion/react": "^11.0.0",
     "@emotion/styled": "^11.0.0",
     "framer-motion": "^8.0.0",
-    "gatsby": "^5.0.0",
     "react": "^17.0.0 || ^18.0.0",
     "react-dom": "^17.0.0 || ^18.0.0"
   }

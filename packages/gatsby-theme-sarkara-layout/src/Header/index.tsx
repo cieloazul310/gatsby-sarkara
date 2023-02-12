@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Box, Spacer, Heading } from '@chakra-ui/react';
+import { Spacer, Heading } from '@chakra-ui/react';
 import {
   Link,
   useSiteMetadata,
@@ -11,20 +11,18 @@ function Header() {
   const { title } = useSiteMetadata();
   return (
     <SarkaraHeader>
-      <Box py={2}>
-        <Link
-          href="/"
-          color="white"
-          _hover={{
-            color: 'primary.100',
-            textDecoration: 'none',
-          }}
-        >
-          <Heading as="h1" size="md">
-            {title}
-          </Heading>
-        </Link>
-      </Box>
+      <Link
+        href="/"
+        color="white"
+        _hover={{
+          color: 'primary.100',
+          textDecoration: 'none',
+        }}
+      >
+        <Heading as="h1" size="md">
+          {title}
+        </Heading>
+      </Link>
       <Spacer display={['none', 'inherit']} />
       <HeaderRight />
     </SarkaraHeader>
