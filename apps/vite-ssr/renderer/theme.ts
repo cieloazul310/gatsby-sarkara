@@ -2,8 +2,8 @@ import { extendTheme, theme as baseTheme } from '@chakra-ui/react';
 
 const theme = {
   colors: {
-    primary: baseTheme.colors.green,
-    secondary: baseTheme.colors.orange,
+    primary: baseTheme.colors.cyan,
+    secondary: baseTheme.colors.pink,
   },
   sizes: {
     header: '56px',

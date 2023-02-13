@@ -5,8 +5,6 @@
   "version": "1.0.0",
   "scripts": {
     "start": "pnpm run server",
-    "preview": "vite preview",
-    "prod": "pnpm run build && pnpm run server:prod",
     "build": "vite build",
     "server": "ts-node ./server/index.ts",
     "server:prod": "cross-env NODE_ENV=production ts-node ./server/index.ts"
@@ -20,6 +18,7 @@
     "@cieloazul310/sarkara": "workspace:^1.0.0",
     "@emotion/react": "^11.0.0",
     "@emotion/styled": "^11.0.0",
+    "@mdx-js/rollup": "^2.3.0",
     "framer-motion": "^8.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
@@ -27,6 +26,7 @@
   "devDependencies": {
     "@types/compression": "^1.7.2",
     "@types/express": "^4.17.17",
+    "@types/mdx": "^2.0.3",
     "@types/node": "^18.11.18",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.10",
