@@ -3,7 +3,7 @@
 import express from 'express';
 import compression from 'compression';
 import { renderPage } from 'vite-plugin-ssr';
-import { root } from './root';
+import { root } from './root.js';
 const isProduction = process.env.NODE_ENV === 'production';
 
 startServer();
