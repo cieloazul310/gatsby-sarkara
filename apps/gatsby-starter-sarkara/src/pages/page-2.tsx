@@ -6,7 +6,7 @@ import {
   H4,
   Paragraph,
   Paper,
-  Seo,
+  GatsbySeo,
   useAbsoluteUrl,
 } from '@cieloazul310/gatsby-theme-sarkara';
 import imageUrl from '../assets/bach.png';
@@ -55,5 +55,5 @@ export default PageTwo;
 
 export function Head() {
   const image = useAbsoluteUrl(imageUrl);
-  return <Seo image={image} />;
+  return <GatsbySeo image={image} />;
 }

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { SarkaraLayout, H2, Paragraph, Paper, Seo } from '@cieloazul310/gatsby-theme-sarkara';
+import { SarkaraLayout, H2, Paragraph, Paper, GatsbySeo } from '@cieloazul310/gatsby-theme-sarkara';
 
 function IndexPage() {
   return (
@@ -15,5 +15,5 @@ function IndexPage() {
 export default IndexPage;
 
 export function Head() {
-  return <Seo />;
+  return <GatsbySeo />;
 }

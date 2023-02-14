@@ -373,6 +373,7 @@ importers:
       '@chakra-ui/react': ^2.4.9
       '@emotion/react': ^11.10.5
       '@emotion/styled': ^11.10.5
+      '@types/mdx': ^2.0.3
       '@types/react': ^18.0.27
       '@types/react-dom': ^18.0.10
       colord: ^2.9.3
@@ -388,6 +389,7 @@ importers:
       '@chakra-ui/react': 2.4.9_ldho2is67tyoj4oiqudu5lhoj4
       '@emotion/react': 11.10.5_3stiutgnnbnfnf3uowm5cip22i
       '@emotion/styled': 11.10.5_jrh5enlbqfbnumycmktdqgd6se
+      '@types/mdx': 2.0.3
       '@types/react': 18.0.27
       '@types/react-dom': 18.0.10
       eslint: 8.32.0
@@ -2922,7 +2924,7 @@ packages:
       '@emotion/react': '>=10.0.35'
       react: '>=18'
     dependencies:
-      '@emotion/react': 11.10.5_pmekkgnqduwlme35zpnqhenc34
+      '@emotion/react': 11.10.5_3stiutgnnbnfnf3uowm5cip22i
       react: 18.2.0
 
   /@chakra-ui/descendant/3.0.13_react@18.2.0:
@@ -3291,8 +3293,8 @@ packages:
       '@chakra-ui/react-env': 3.0.0_react@18.2.0
       '@chakra-ui/system': 2.4.0_dovxhg2tvkkxkdnqyoum6wzcxm
       '@chakra-ui/utils': 2.0.15
-      '@emotion/react': 11.10.5_pmekkgnqduwlme35zpnqhenc34
-      '@emotion/styled': 11.10.5_g6cddab2ma6w7rmdnelgn6dq2a
+      '@emotion/react': 11.10.5_3stiutgnnbnfnf3uowm5cip22i
+      '@emotion/styled': 11.10.5_jrh5enlbqfbnumycmktdqgd6se
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
 
@@ -3739,8 +3741,8 @@ packages:
       '@chakra-ui/styled-system': 2.5.2
       '@chakra-ui/theme-utils': 2.0.9
       '@chakra-ui/utils': 2.0.15
-      '@emotion/react': 11.10.5_pmekkgnqduwlme35zpnqhenc34
-      '@emotion/styled': 11.10.5_g6cddab2ma6w7rmdnelgn6dq2a
+      '@emotion/react': 11.10.5_3stiutgnnbnfnf3uowm5cip22i
+      '@emotion/styled': 11.10.5_jrh5enlbqfbnumycmktdqgd6se
       react: 18.2.0
       react-fast-compare: 3.2.0
 
@@ -4248,6 +4250,7 @@ packages:
       '@types/react': 18.0.28
       hoist-non-react-statics: 3.3.2
       react: 18.2.0
+    dev: false
 
   /@emotion/serialize/1.1.1:
     resolution: {integrity: sha512-Zl/0LFggN7+L1liljxXdsVSVlg6E/Z/olVWpfxUTxOAmi8NU7YoeWeLfi1RmnB2TATHoaWwIBRoL+FvAJiTUQA==}
@@ -4283,6 +4286,7 @@ packages:
       '@emotion/utils': 1.2.0
       '@types/react': 18.0.28
       react: 18.2.0
+    dev: false
 
   /@emotion/styled/11.10.5_jrh5enlbqfbnumycmktdqgd6se:
     resolution: {integrity: sha512-8EP6dD7dMkdku2foLoruPCNkRevzdcBaY6q0l0OsbyJK+x8D9HWjX27ARiSIKNF634hY9Zdoedh8bJCiva8yZw==}
@@ -8157,7 +8161,7 @@ packages:
       '@babel/plugin-transform-react-jsx-source': 7.19.6_@babel+core@7.20.12
       magic-string: 0.27.0
       react-refresh: 0.14.0
-      vite: 4.1.1_@types+node@18.11.18
+      vite: 4.1.1
     transitivePeerDependencies:
       - supports-color
     dev: true

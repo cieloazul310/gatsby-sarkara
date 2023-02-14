@@ -3,7 +3,7 @@ import {
   SarkaraLayout,
   Paragraph,
   Paper,
-  Seo,
+  GatsbySeo,
 } from '@cieloazul310/gatsby-theme-sarkara';
 
 function NotFoundPage() {
@@ -19,5 +19,5 @@ function NotFoundPage() {
 export default NotFoundPage;
 
 export function Head() {
-  return <Seo title="404 Not Found" />;
+  return <GatsbySeo title="404 Not Found" />;
 }

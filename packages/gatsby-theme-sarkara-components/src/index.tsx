@@ -3,5 +3,5 @@ export {
   default as PaperButtonLink,
   type PaperButtonLinkProps,
 } from './PaperButtonLink';
-export { default as Seo, type SeoProps } from './Seo';
+export { default as GatsbySeo, type GatsbySeoProps } from './Seo';
 export * from './utils';
