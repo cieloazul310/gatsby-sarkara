@@ -133,6 +133,7 @@ dist
 packages/*/lib
 apps/*/public
 apps/*/storybook-static
+!apps/vite-ssr/public
 
 # turborepo
 .turbo

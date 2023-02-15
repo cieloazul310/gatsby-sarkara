@@ -3,7 +3,7 @@ title: Page 2
 description: Page 2 ni ha description ga arimasu.
 ---
 
-import { Seo, useAbsoluteUrl } from '@cieloazul310/gatsby-theme-sarkara';
+import { GatsbySeo, useAbsoluteUrl } from '@cieloazul310/gatsby-theme-sarkara';
 import Layout from '../layout';
 import imageUrl from '../assets/bach.png';
 
@@ -21,5 +21,5 @@ export default Layout;
 
 export function Head() {
   const image = useAbsoluteUrl(imageUrl);
-  return <Seo title="Page 2" image={image} />;
+  return <GatsbySeo title="Page 2" image={image} />;
 }

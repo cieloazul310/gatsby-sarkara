@@ -12,6 +12,7 @@ import {
   Link as ChakraLink,
   Divider,
 } from '@chakra-ui/react';
+import type { MDXComponents } from 'mdx/types';
 import { useAlpha, usePrimaryToken, useSecondaryToken } from './utils';
 
 const ChakraImg = chakra('img');
@@ -158,7 +159,7 @@ export function CodeBlock(props: Record<string, any>) {
   );
 }
 
-export const chakraComponents = {
+export const chakraComponents: MDXComponents = {
   p: Paragraph,
   h1: H1,
   h2: H2,
