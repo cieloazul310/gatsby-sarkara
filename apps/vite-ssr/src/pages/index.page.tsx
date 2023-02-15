@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Flex } from '@chakra-ui/react';
 import { BasicLayout, Paper, PaperButton } from '@cieloazul310/sarkara';
-import Article from '../components/article.mdx';
+import Article from '../mdx/article.mdx';
 import mdxComponents from '../components/mdxComponents';
 
 function Page() {
