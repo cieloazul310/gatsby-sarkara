@@ -1,5 +1,13 @@
 # sarkara-vite-example
 
+## 0.0.2
+
+### Patch Changes
+
+- 3c5c9d0: fix package.json
+- Updated dependencies [3c5c9d0]
+  - @cieloazul310/sarkara@0.0.2
+
 ## 0.0.1
 
 ### Patch Changes
