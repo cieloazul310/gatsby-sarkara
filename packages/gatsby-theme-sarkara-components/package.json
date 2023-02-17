@@ -1,7 +1,9 @@
 {
   "name": "@cieloazul310/gatsby-theme-sarkara-components",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.0.0",
+  "description": "Sarkara components package for Gatsby.",
+  "author": "@cieloazul310",
+  "license": "ISC",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "directories": {
@@ -10,9 +12,9 @@
   "files": [
     "lib"
   ],
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "tsc",
     "dev": "tsc --watch",
@@ -22,7 +24,7 @@
   "devDependencies": {
     "@chakra-ui/icons": "^2.0.17",
     "@chakra-ui/react": "^2.4.9",
-    "@cieloazul310/sarkara-components": "workspace:^1.0.0",
+    "@cieloazul310/sarkara-components": "workspace:*",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@types/react": "^18.0.27",
@@ -35,7 +37,7 @@
   "peerDependencies": {
     "@chakra-ui/icons": "^2.0.0",
     "@chakra-ui/react": "^2.4.0",
-    "@cieloazul310/sarkara-components": "workspace:^1.0.0",
+    "@cieloazul310/sarkara-components": "workspace:*",
     "@emotion/react": "^11.0.0",
     "@emotion/styled": "^11.0.0",
     "framer-motion": "^8.0.0",

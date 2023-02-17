@@ -2,7 +2,7 @@
   "name": "gatsby-sarkara",
   "private": true,
   "packageManager": "pnpm@7.24.3",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "",
   "workspaces": [
     "apps/*",
@@ -20,11 +20,14 @@
     "build": "turbo run build",
     "lint": "turbo run lint",
     "test": "turbo run test",
+    "changeset": "changeset",
+    "publish-packages": "turbo run build lint test && changeset version && changeset publish",
     "format": "prettier \"{packages,apps}/*/src/**.{js,jsx,ts,tsx}\" --parser typescript --write",
     "prepare": "husky install",
     "lint-staged": "lint-staged"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.26.0",
     "@commitlint/cli": "^17.4.2",
     "@commitlint/config-conventional": "^17.4.2",
     "husky": "^8.0.3",

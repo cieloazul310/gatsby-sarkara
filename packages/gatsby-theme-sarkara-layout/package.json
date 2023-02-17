@@ -1,11 +1,16 @@
 {
   "name": "@cieloazul310/gatsby-theme-sarkara-layout",
-  "version": "1.0.0",
-  "description": "",
-  "main": "src/index.tsx",
-  "keywords": [],
-  "author": "",
+  "version": "0.0.0",
+  "description": "Sarkara layout package for Gatsby.",
+  "author": "@cieloazul310",
   "license": "ISC",
+  "main": "src/index.tsx",
+  "files": [
+    "src"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "test": "tsc --noEmit",
     "lint": "eslint src/*"
@@ -13,9 +18,9 @@
   "devDependencies": {
     "@chakra-ui/icons": "^2.0.17",
     "@chakra-ui/react": "^2.4.9",
-    "@cieloazul310/gatsby-theme-sarkara-components": "workspace:^1.0.0",
-    "@cieloazul310/sarkara-components": "workspace:^1.0.0",
-    "@cieloazul310/sarkara-layout": "workspace:^1.0.0",
+    "@cieloazul310/gatsby-theme-sarkara-components": "workspace:*",
+    "@cieloazul310/sarkara-components": "workspace:*",
+    "@cieloazul310/sarkara-layout": "workspace:*",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@gatsbyjs/reach-router": "^2.0.1",
@@ -29,9 +34,9 @@
   "peerDependencies": {
     "@chakra-ui/icons": "^2.0.0",
     "@chakra-ui/react": "^2.4.0",
-    "@cieloazul310/gatsby-theme-sarkara-components": "workspace:^1.0.0",
-    "@cieloazul310/sarkara-components": "workspace:^1.0.0",
-    "@cieloazul310/sarkara-layout": "workspace:^1.0.0",
+    "@cieloazul310/gatsby-theme-sarkara-components": "workspace:*",
+    "@cieloazul310/sarkara-components": "workspace:*",
+    "@cieloazul310/sarkara-layout": "workspace:*",
     "@emotion/react": "^11.0.0",
     "@emotion/styled": "^11.0.0",
     "@gatsbyjs/reach-router": "^2.0.1",

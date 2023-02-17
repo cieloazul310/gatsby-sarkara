@@ -1,7 +1,9 @@
 {
   "name": "@cieloazul310/gatsby-theme-sarkara",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.0.0",
+  "description": "Gatsby theme package based on Chakra UI.",
+  "author": "@cieloazul310",
+  "license": "ISC",
   "main": "index.js",
   "types": "index.d.ts",
   "files": [
@@ -9,13 +11,13 @@
     "index.d.ts",
     "gatsby-config.js"
   ],
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
-    "@cieloazul310/gatsby-theme-sarkara-components": "workspace:^1.0.0",
-    "@cieloazul310/gatsby-theme-sarkara-layout": "workspace:^1.0.0",
-    "@cieloazul310/sarkara": "workspace:^1.0.0"
+    "@cieloazul310/gatsby-theme-sarkara-components": "workspace:*",
+    "@cieloazul310/gatsby-theme-sarkara-layout": "workspace:*",
+    "@cieloazul310/sarkara": "workspace:*"
   },
   "peerDependencies": {
     "@chakra-ui/icons": "^2.0.0",
