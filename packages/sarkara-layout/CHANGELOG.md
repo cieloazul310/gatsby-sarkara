@@ -1,5 +1,13 @@
 # @cieloazul310/sarkara-layout
 
+## 0.0.3
+
+### Patch Changes
+
+- b6f99a6: fix dependencies
+- Updated dependencies [b6f99a6]
+  - @cieloazul310/sarkara-components@0.0.3
+
 ## 0.0.2
 
 ### Patch Changes

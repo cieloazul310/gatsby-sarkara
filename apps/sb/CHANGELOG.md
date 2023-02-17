@@ -1,5 +1,14 @@
 # sarkara-sb-example
 
+## 0.0.3
+
+### Patch Changes
+
+- Updated dependencies [b6f99a6]
+  - @cieloazul310/gatsby-theme-sarkara-components@0.0.3
+  - @cieloazul310/sarkara-components@0.0.3
+  - @cieloazul310/sarkara-layout@0.0.3
+
 ## 0.0.2
 
 ### Patch Changes

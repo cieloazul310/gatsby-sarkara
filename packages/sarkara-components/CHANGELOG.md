@@ -1,5 +1,11 @@
 # @cieloazul310/sarkara-components
 
+## 0.0.3
+
+### Patch Changes
+
+- b6f99a6: fix dependencies
+
 ## 0.0.2
 
 ### Patch Changes
