@@ -186,7 +186,7 @@ importers:
       framer-motion: ^8.0.0
       react: ^18.2.0
       react-dom: ^18.2.0
-      tsconfig: ^7.0.0
+      tsconfig: workspace:*
       typescript: ^4.9.4
       vite: ^4.1.1
     dependencies:
@@ -204,7 +204,7 @@ importers:
       '@vitejs/plugin-react': 3.1.0_vite@4.1.1
       eslint: 8.32.0
       eslint-config-custom: link:../../packages/eslint-config-custom
-      tsconfig: 7.0.0
+      tsconfig: link:../../packages/tsconfig
       typescript: 4.9.5
       vite: 4.1.1
 
@@ -233,7 +233,7 @@ importers:
       react-dom: ^18.2.0
       sirv: ^2.0.2
       ts-node: ^10.9.1
-      tsconfig: ^7.0.0
+      tsconfig: workspace:*
       typescript: ^4.9.4
       vite: ^4.1.1
       vite-plugin-ssr: ^0.4.80
@@ -262,7 +262,7 @@ importers:
       express: 4.18.2
       sirv: 2.0.2
       ts-node: 10.9.1_bdgp3l2zgaopogaavxusmetvge
-      tsconfig: 7.0.0
+      tsconfig: link:../../packages/tsconfig
       typescript: 4.9.5
       vite: 4.1.1_@types+node@18.11.18
       vite-plugin-ssr: 0.4.80_vite@4.1.1
@@ -7984,14 +7984,6 @@ packages:
 
   /@types/source-list-map/0.1.2:
     resolution: {integrity: sha512-K5K+yml8LTo9bWJI/rECfIPrGgxdpeNbj+d53lwN4QjW1MCwlkhUms+gtdzigTeUyBr09+u8BwOIY3MXvHdcsA==}
-    dev: true
-
-  /@types/strip-bom/3.0.0:
-    resolution: {integrity: sha512-xevGOReSYGM7g/kUBZzPqCrR/KYAo+F0yiPc85WFTJa0MSLtyFTVTU6cJu/aV4mid7IffDIWqo69THF2o4JiEQ==}
-    dev: true
-
-  /@types/strip-json-comments/0.0.30:
-    resolution: {integrity: sha512-7NQmHra/JILCd1QqpSzl8+mJRc8ZHz3uDm8YV1Ks9IhK0epEiTw8aIErbvH9PI+6XbqhyIQy3462nEsn7UVzjQ==}
     dev: true
 
   /@types/tapable/1.0.8:
@@ -20602,15 +20594,6 @@ packages:
       json5: 1.0.2
       minimist: 1.2.7
       strip-bom: 3.0.0
-
-  /tsconfig/7.0.0:
-    resolution: {integrity: sha512-vZXmzPrL+EmC4T/4rVlT2jNVMWCi/O4DIiSj3UHg1OE5kCKbk4mfrXc6dZksLgRM/TZlKnousKH9bbTazUWRRw==}
-    dependencies:
-      '@types/strip-bom': 3.0.0
-      '@types/strip-json-comments': 0.0.30
-      strip-bom: 3.0.0
-      strip-json-comments: 2.0.1
-    dev: true
 
   /tslib/1.14.1:
     resolution: {integrity: sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==}
