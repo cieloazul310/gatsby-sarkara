@@ -5,6 +5,10 @@
       "dependsOn": ["^build"],
       "outputs": ["lib", "storybook-static", "public"]
     },
+    "build:package": {
+      "dependsOn": ["^build:package"],
+      "outputs": ["lib"]
+    },
     "test": {
       "dependsOn": ["^build"]
     },
