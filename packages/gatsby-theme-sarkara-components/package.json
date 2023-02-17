@@ -23,6 +23,7 @@
   },
   "scripts": {
     "build": "tsc",
+    "build:package": "pnpm run build",
     "dev": "tsc --watch",
     "test": "tsc --noEmit",
     "lint": "eslint src/*"
@@ -34,6 +35,8 @@
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@types/react": "^18.0.27",
+    "eslint": "^8.32.0",
+    "eslint-config-custom": "workspace:*",
     "framer-motion": "^8.5.0",
     "gatsby": "^5.5.0",
     "react": "^18.2.0",

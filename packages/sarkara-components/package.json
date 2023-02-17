@@ -23,6 +23,7 @@
   },
   "scripts": {
     "build": "tsc",
+    "build:package": "pnpm run build",
     "dev": "tsc --watch",
     "test": "tsc --noEmit",
     "lint": "eslint src/*"

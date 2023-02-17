@@ -1,8 +1,6 @@
 name: CI
  
 on:
-  push:
-    branches: ["main"]
   pull_request:
     types: [opened, synchronize]
  
@@ -35,8 +33,5 @@ jobs:
         - name: Install dependencies
           run: pnpm install
  
-        - name: Build
-          run: pnpm build
- 
-        - name: Test
-          run: pnpm test
+        - name: Build & Test & Lint
+          run: pnpm turbo
