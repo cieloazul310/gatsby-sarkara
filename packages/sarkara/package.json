@@ -1,15 +1,27 @@
 {
   "name": "@cieloazul310/sarkara",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.0.0",
+  "description": "Sarkara theme package for React based on Chakra UI.",
+  "author": "@cieloazul310",
+  "homepage": "https://github.com/cieloazul310/gatsby-sarkara",
+  "license": "ISC",
   "main": "index.js",
   "types": "index.d.ts",
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "files": [
+    "index.js",
+    "index.d.ts"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cieloazul310/gatsby-sarkara",
+    "directory": "packages/sarkara"
+  },
   "dependencies": {
-    "@cieloazul310/sarkara-components": "workspace:^1.0.0",
-    "@cieloazul310/sarkara-layout": "workspace:^1.0.0"
+    "@cieloazul310/sarkara-components": "workspace:*",
+    "@cieloazul310/sarkara-layout": "workspace:*"
   },
   "peerDependencies": {
     "@chakra-ui/icons": "^2.0.0",
