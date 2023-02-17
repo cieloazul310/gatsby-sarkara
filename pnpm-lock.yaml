@@ -338,6 +338,8 @@ importers:
       '@emotion/styled': ^11.10.5
       '@gatsbyjs/reach-router': ^2.0.1
       '@types/react': ^18.0.27
+      eslint: ^8.32.0
+      eslint-config-custom: workspace:*
       framer-motion: ^8.5.0
       gatsby: ^5.5.0
       react: ^18.2.0
@@ -353,6 +355,8 @@ importers:
       '@emotion/styled': 11.10.5_jrh5enlbqfbnumycmktdqgd6se
       '@gatsbyjs/reach-router': 2.0.1_biqbaboplfbrettd7655fr4n2y
       '@types/react': 18.0.27
+      eslint: 8.32.0
+      eslint-config-custom: link:../eslint-config-custom
       framer-motion: 8.5.0_biqbaboplfbrettd7655fr4n2y
       gatsby: 5.5.0_biqbaboplfbrettd7655fr4n2y
       react: 18.2.0
