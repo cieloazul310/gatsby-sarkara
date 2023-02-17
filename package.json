@@ -21,7 +21,7 @@
     "lint": "turbo run lint",
     "test": "turbo run test",
     "changeset": "changeset",
-    "publish-packages": "turbo run build lint test && changeset version && changeset publish",
+    "publish-packages": "pnpm turbo && changeset version && changeset publish",
     "format": "prettier \"{packages,apps}/*/src/**.{js,jsx,ts,tsx}\" --parser typescript --write",
     "prepare": "husky install",
     "lint-staged": "lint-staged"
@@ -38,7 +38,7 @@
   },
   "lint-staged": {
     "packages/*/src/**/*.{js,ts,jsx,tsx}": [
-      "pnpm format"
+      "prettier --parser typescript --write"
     ]
   }
 }

@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "description": "Sarkara layout package for Gatsby.",
   "author": "@cieloazul310",
+  "homepage": "https://github.com/cieloazul310/gatsby-sarkara",
   "license": "ISC",
   "main": "src/index.tsx",
   "files": [
@@ -10,6 +11,11 @@
   ],
   "publishConfig": {
     "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cieloazul310/gatsby-sarkara",
+    "directory": "packages/gatsby-theme-sarkara-layout"
   },
   "scripts": {
     "test": "tsc --noEmit",
