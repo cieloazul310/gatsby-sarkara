@@ -1,5 +1,12 @@
 # sarkara-vite-ssr-example
 
+## 0.0.3
+
+### Patch Changes
+
+- Updated dependencies [b6f99a6]
+  - @cieloazul310/sarkara@0.0.3
+
 ## 0.0.2
 
 ### Patch Changes
