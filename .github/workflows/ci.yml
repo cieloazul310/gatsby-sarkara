@@ -4,7 +4,8 @@ on:
   pull_request:
     types: [opened, synchronize]
     paths-ignore:
-      - "*/**/README.md"
+      - "*.md"
+      - "*/**/*.md"
       - ".vscode/*"
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
