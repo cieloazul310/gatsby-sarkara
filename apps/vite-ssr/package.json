@@ -2,7 +2,7 @@
   "name": "sarkara-vite-ssr-example",
   "private": true,
   "type": "module",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "scripts": {
     "start": "pnpm run server",
     "build": "vite build",

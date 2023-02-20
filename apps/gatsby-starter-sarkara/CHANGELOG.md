@@ -1,5 +1,14 @@
 # gatsby-starter-sarkara
 
+## 0.0.4
+
+### Patch Changes
+
+- 3100910: BREAKING CHANGE: remove DefaultLayout, rename layout components: from BasicLayout to SarkaraLayout, from SarkaraLayout to GatsbySarkaraLayout; and add SarkaraLayoutLite.
+- Updated dependencies [3100910]
+  - @cieloazul310/gatsby-theme-sarkara-layout@0.0.4
+  - @cieloazul310/gatsby-theme-sarkara@0.0.4
+
 ## 0.0.3
 
 ### Patch Changes
