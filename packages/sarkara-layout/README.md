@@ -26,19 +26,19 @@ npm install @cieloazul310/sarkara-layout
 
 ### Layouts
 
-#### `<BasicLayout>`
+#### `<SarkaraLayout>`
 
-With header, jumbotron, sidebar, drawer and footer.
+Basic layout structure.
 
-#### `<DefaultLayout>`
+#### `<SarkaraLayoutLite>`
 
-With header and footer.
+Sarkara layout with placeholders for header, jumbotron and footer.
 
 ### Layout components
 
-#### `<Header>`
+#### `<SarkaraHeader>`
 
-#### `<Footer>`
+#### `<SarkaraFooter>`
 
 #### `<DrawerContents>`
 

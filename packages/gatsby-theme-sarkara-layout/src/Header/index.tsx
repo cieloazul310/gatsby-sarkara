@@ -4,7 +4,7 @@ import {
   Link,
   useSiteMetadata,
 } from '@cieloazul310/gatsby-theme-sarkara-components';
-import { Header as SarkaraHeader } from '@cieloazul310/sarkara-layout';
+import { SarkaraHeader } from '@cieloazul310/sarkara-layout';
 import HeaderRight from './Right';
 
 function Header() {

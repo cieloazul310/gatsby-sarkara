@@ -2,7 +2,7 @@ import * as React from 'react';
 import type { PageProps } from 'gatsby';
 import { MDXProvider, useMDXComponents } from '@mdx-js/react';
 import {
-  SarkaraLayout,
+  GatsbySarkaraLayout,
   Paper,
   chakraComponents,
 } from '@cieloazul310/gatsby-theme-sarkara';
@@ -20,14 +20,14 @@ function Layout({
 }: PageProps<Record<string, unknown>, MdxPageContext>) {
   const components = useMDXComponents({ ...chakraComponents });
   return (
-    <SarkaraLayout
+    <GatsbySarkaraLayout
       title={pageContext?.frontmatter?.title ?? 'Gatsby Sarkara MDX'}
       description={pageContext?.frontmatter?.description ?? undefined}
     >
       <Paper as="article">
         <MDXProvider components={components}>{children}</MDXProvider>
       </Paper>
-    </SarkaraLayout>
+    </GatsbySarkaraLayout>
   );
 }
 

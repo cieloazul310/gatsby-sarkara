@@ -1,6 +1,6 @@
 export {
-  default as DrawerContent,
-  type DrawerContentProps,
+  default as SarkaraDrawerContent,
+  type SarkaraDrawerContentProps,
 } from './Drawer/Content';
-export { default as Footer, type FooterProps } from './Footer';
-export { default as Header, type HeaderProps } from './Header';
+export { default as SarkaraFooter, type SarkaraFooterProps } from './Footer';
+export { default as SarkaraHeader, type SarkaraHeaderProps } from './Header';

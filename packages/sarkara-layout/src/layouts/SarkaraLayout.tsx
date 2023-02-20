@@ -9,86 +9,80 @@ import {
 } from '@chakra-ui/react';
 import { HamburgerIcon } from '@chakra-ui/icons';
 import {
-  Jumbotron,
   useContentMaxWidth,
   useSidebarWidth,
   usePrimaryToken,
 } from '@cieloazul310/sarkara-components';
-import { Header, Footer, DrawerContent } from '../components';
+import { SarkaraDrawerContent } from '../components';
 
-export type BasicLayoutProps = React.PropsWithChildren<{
+export type SarkaraLayoutProps = React.PropsWithChildren<{
   title: string;
-  description?: string;
+  siteTitle?: string;
   header?: React.ReactNode;
   footer?: React.ReactNode;
   jumbotron?: React.ReactNode;
-  jumbotronHeight?: number;
   sidebarContents?: React.ReactNode;
   drawerContents?: React.ReactNode;
+  drawerFooterContents?: React.ReactNode;
   disableSidebar?: boolean;
   disableDrawer?: boolean;
+  disableSidebarSticky?: boolean;
 }>;
 
-function BasicLayout({
+function SarkaraLayout({
   children,
   title,
-  description,
+  siteTitle,
   header,
   footer,
   jumbotron,
-  jumbotronHeight,
   sidebarContents,
   drawerContents,
+  drawerFooterContents,
   disableSidebar = false,
   disableDrawer = false,
-}: BasicLayoutProps) {
+  disableSidebarSticky = false,
+}: SarkaraLayoutProps) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef<HTMLButtonElement | null>(null);
   const fabDisplay = React.useMemo(() => {
     if (disableSidebar) return 'block';
     return ['block', 'block', 'none'];
   }, [disableSidebar]);
+  const primary = usePrimaryToken();
   const contentMaxWidth = useContentMaxWidth();
   const sidebarWidth = useSidebarWidth();
 
-  const basicLayoutHeader = React.useMemo(() => {
-    if (header) return header;
-    return <Header title={title} />;
-  }, [header, Header, title]);
-
-  const basicLayoutJumbotron = React.useMemo(() => {
-    if (jumbotron) return jumbotron;
-    return (
-      <Jumbotron
-        title={title}
-        description={description}
-        height={jumbotronHeight}
-      />
-    );
-  }, [jumbotron, Jumbotron, title, description, jumbotronHeight]);
-
-  const basicLayoutFooter = React.useMemo(() => {
-    if (footer) return footer;
-    return <Footer title={title} />;
-  }, [footer, Footer, title]);
-
-  const basicLayoutDrawer = React.useMemo(() => {
+  const SarkaraLayoutDrawer = React.useMemo(() => {
     if (disableDrawer) return null;
     return (
       <Drawer
-        isOpen={isOpen}
         placement="bottom"
+        isOpen={isOpen}
         onClose={onClose}
         finalFocusRef={btnRef}
       >
         <DrawerOverlay />
-        <DrawerContent title={title}>{drawerContents}</DrawerContent>
+        <SarkaraDrawerContent
+          title={siteTitle ?? title}
+          footerContents={drawerFooterContents}
+          onClose={onClose}
+        >
+          {drawerContents}
+        </SarkaraDrawerContent>
       </Drawer>
     );
-  }, [disableDrawer, isOpen, onClose, btnRef, title, drawerContents]);
+  }, [
+    disableDrawer,
+    isOpen,
+    onClose,
+    btnRef,
+    title,
+    siteTitle,
+    drawerContents,
+  ]);
 
-  const primary = usePrimaryToken();
-  const basicLayoutButton = React.useMemo(() => {
+  const SarkaraLayoutButton = React.useMemo(() => {
     if (disableDrawer) return null;
     return (
       <IconButton
@@ -109,6 +103,9 @@ function BasicLayout({
 
   const basicLayourSidebar = React.useMemo(() => {
     if (disableSidebar) return null;
+    const maxHeight = !disableSidebarSticky
+      ? 'calc(100vh - var(--chakra-sizes-header))'
+      : undefined;
     return (
       <VStack
         spacing={4}
@@ -118,20 +115,21 @@ function BasicLayout({
         px={2}
         pb={8}
         flexShrink={0}
+        right={0}
         position="sticky"
         overflowY="auto"
         top="calc(var(--chakra-sizes-header) + 1rem)"
-        right={0}
+        maxHeight={maxHeight}
       >
         {sidebarContents}
       </VStack>
     );
-  }, [disableSidebar, sidebarWidth, sidebarContents]);
+  }, [disableSidebar, sidebarWidth, sidebarContents, disableSidebarSticky]);
 
   return (
     <>
-      {basicLayoutHeader}
-      {basicLayoutJumbotron}
+      {header}
+      {jumbotron}
       <Container display="flex" py={4} px={2} maxWidth={contentMaxWidth}>
         <VStack
           flexGrow={1}
@@ -144,23 +142,24 @@ function BasicLayout({
         </VStack>
         {basicLayourSidebar}
       </Container>
-      {basicLayoutButton}
-      {basicLayoutDrawer}
-      {basicLayoutFooter}
+      {SarkaraLayoutButton}
+      {SarkaraLayoutDrawer}
+      {footer}
     </>
   );
 }
 
-BasicLayout.defaultProps = {
-  description: undefined,
+SarkaraLayout.defaultProps = {
+  siteTitle: undefined,
   header: undefined,
   footer: undefined,
   jumbotron: undefined,
-  jumbotronHeight: undefined,
   sidebarContents: undefined,
   drawerContents: undefined,
+  drawerFooterContents: undefined,
   disableSidebar: false,
   disableDrawer: false,
+  disableSidebarSticky: false,
 };
 
-export default BasicLayout;
+export default SarkaraLayout;
