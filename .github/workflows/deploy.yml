@@ -1,0 +1,62 @@
+name: Deploy Storybook
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - "*.md"
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
+      
+      - uses: pnpm/action-setup@v2.0.1
+        with:
+          version: 7.24.3
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'pnpm'
+      
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v2
+
+      - name: Install Dependencies
+        run: pnpm install
+      
+      - name: Build packages
+        run: pnpm run build:package
+
+      - name: Build Storybook
+        run: pnpm --filter sarkara-sb-example build
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: ./apps/sb/storybook-static
+
+  deploy:
+    name: Deploy
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
+
