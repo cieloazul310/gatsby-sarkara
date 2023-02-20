@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {
-  SarkaraLayout,
+  GatsbySarkaraLayout,
   H2,
   H3,
   H4,
@@ -13,7 +13,7 @@ import imageUrl from '../assets/bach.png';
 
 function PageTwo() {
   return (
-    <SarkaraLayout
+    <GatsbySarkaraLayout
       title="Page 2"
       sidebarContents={
         <Paper colorSchemes="secondary" as="aside">
@@ -47,7 +47,7 @@ function PageTwo() {
           茶は薬用として始まり後飲料となる。シナにおいては八世紀に高雅な遊びの一つとして詩歌の域に達した。十五世紀に至り日本はこれを高めて一種の審美的宗教、すなわち茶道にまで進めた。茶道は日常生活の俗事の中に存する美しきものを崇拝することに基づく一種の儀式であって、純粋と調和、相互愛の神秘、社会秩序のローマン主義を諄々と教えるものである。茶道の要義は「不完全なもの」を崇拝するにある。いわゆる人生というこの不可解なもののうちに、何か可能なものを成就しようとするやさしい企てであるから。
         </Paragraph>
       </Paper>
-    </SarkaraLayout>
+    </GatsbySarkaraLayout>
   );
 }
 

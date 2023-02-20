@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {
-  SarkaraLayout,
+  GatsbySarkaraLayout,
   Paragraph,
   Paper,
   GatsbySeo,
@@ -8,11 +8,11 @@ import {
 
 function NotFoundPage() {
   return (
-    <SarkaraLayout title="404 Not Found">
+    <GatsbySarkaraLayout title="404 Not Found">
       <Paper>
         <Paragraph>Chakra UI Extension</Paragraph>
       </Paper>
-    </SarkaraLayout>
+    </GatsbySarkaraLayout>
   );
 }
 

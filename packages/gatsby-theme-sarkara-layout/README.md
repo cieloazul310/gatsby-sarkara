@@ -29,13 +29,13 @@ npm install @cieloazul310/gatsby-theme-sarkara-layout
 
 ```tsx
 // src/pages/hoge.tsx
-import { SarkaraLayout } from '@cieloazul310/gatsby-theme-sarkara';
+import { GatsbySarkaraLayout } from '@cieloazul310/gatsby-theme-sarkara';
 
 function Page() {
   return (
-    <SarkaraLayout>
+    <GatsbySarkaraLayout>
       {contents}
-    </SarkaraLayout>
+    </GatsbySarkaraLayout>
   );
 }
 ```
@@ -62,7 +62,7 @@ src
 
 ### Layout
 
-#### `<SarkaraLayout>`
+#### `<GatsbySarkaraLayout>`
 
 ### utils
 

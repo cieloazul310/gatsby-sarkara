@@ -3,6 +3,7 @@ import * as React from 'react';
 import {
   Spacer,
   VStack,
+  Button,
   IconButton,
   DrawerBody,
   DrawerFooter,
@@ -14,19 +15,21 @@ import {
 } from '@chakra-ui/react';
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 
-export type DrawerContentProps = React.PropsWithChildren<{
+export type SarkaraDrawerContentProps = React.PropsWithChildren<{
   title: string;
+  onClose: () => void;
   footerContents?: React.ReactNode;
 }> &
   ChakraDrawerContentProps;
 
-function DrawerContent({
+function SarkaraDrawerContent({
   title,
   children,
+  onClose,
   footerContents,
   maxHeight = ['75vh', '75vh', '100vh'],
   ...props
-}: DrawerContentProps) {
+}: SarkaraDrawerContentProps) {
   const { colorMode, toggleColorMode } = useColorMode();
   return (
     <ChakraDrawerContent maxHeight={maxHeight} {...props}>
@@ -45,13 +48,14 @@ function DrawerContent({
         />
         <Spacer />
         {footerContents}
+        <Button onClick={onClose}>Close</Button>
       </DrawerFooter>
     </ChakraDrawerContent>
   );
 }
 
-DrawerContent.defaultProps = {
+SarkaraDrawerContent.defaultProps = {
   footerContents: undefined,
 };
 
-export default DrawerContent;
+export default SarkaraDrawerContent;

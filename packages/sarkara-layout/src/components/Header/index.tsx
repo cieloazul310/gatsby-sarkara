@@ -6,11 +6,11 @@ import {
   useHeaderHeight,
 } from '@cieloazul310/sarkara-components';
 
-export type HeaderProps = FlexProps & {
+export type SarkaraHeaderProps = FlexProps & {
   title?: string;
 };
 
-function Header({
+function SarkaraHeader({
   children,
   as = 'header',
   alignItems = 'center',
@@ -24,7 +24,7 @@ function Header({
   height,
   title,
   ...props
-}: HeaderProps) {
+}: SarkaraHeaderProps) {
   const { bgGradient, color } = useGradientBox();
   const headerHeight = useHeaderHeight();
   return (
@@ -53,8 +53,8 @@ function Header({
   );
 }
 
-Header.defaultProps = {
+SarkaraHeader.defaultProps = {
   title: undefined,
 };
 
-export default Header;
+export default SarkaraHeader;

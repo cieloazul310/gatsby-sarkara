@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Heading, Text } from '@chakra-ui/react';
-import { Footer as SarkaraFooter } from '@cieloazul310/sarkara-layout';
+import { SarkaraFooter } from '@cieloazul310/sarkara-layout';
 import {
   Link,
   useSiteMetadata,

@@ -10,11 +10,11 @@ import {
 } from '@chakra-ui/react';
 import { useGradient, usePrimaryToken } from '@cieloazul310/sarkara-components';
 
-export type FooterProps = FlexProps & {
+export type SarkaraFooterProps = FlexProps & {
   title?: string;
 };
 
-function Footer({
+function SarkaraFooter({
   children,
   as = 'footer',
   alignItems = 'center',
@@ -23,7 +23,7 @@ function Footer({
   gap = 2,
   title,
   ...props
-}: FooterProps) {
+}: SarkaraFooterProps) {
   const primaryLight = usePrimaryToken(300);
   const primaryDark = usePrimaryToken(700);
   const primary = useColorModeValue(primaryLight, primaryDark);
@@ -61,8 +61,8 @@ function Footer({
   );
 }
 
-Footer.defaultProps = {
+SarkaraFooter.defaultProps = {
   title: undefined,
 };
 
-export default Footer;
+export default SarkaraFooter;
