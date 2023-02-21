@@ -377,6 +377,7 @@ importers:
 
   packages/sarkara-components:
     specifiers:
+      '@chakra-ui/icons': ^2.0.17
       '@chakra-ui/react': ^2.4.9
       '@emotion/react': ^11.10.5
       '@emotion/styled': ^11.10.5
@@ -393,6 +394,7 @@ importers:
     dependencies:
       colord: 2.9.3
     devDependencies:
+      '@chakra-ui/icons': 2.0.17_react@18.2.0
       '@chakra-ui/react': 2.4.9_mssp42tu36jrnyonn2qxfothly
       '@emotion/react': 11.10.5_3stiutgnnbnfnf3uowm5cip22i
       '@emotion/styled': 11.10.5_jrh5enlbqfbnumycmktdqgd6se

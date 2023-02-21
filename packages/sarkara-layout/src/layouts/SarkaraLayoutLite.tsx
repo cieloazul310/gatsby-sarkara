@@ -8,13 +8,12 @@ export type SarkaraLayoutLiteProps = Omit<
   SarkaraLayoutProps,
   'header' | 'jumbotron' | 'footer'
 > & {
-  title: string;
   description?: string;
   jumbotronHeight?: number;
 };
 
 /**
- * Sarkara Layout with placeholder components.
+ * Sarkara basic layout with placeholder components.
  */
 function SarkaraLayoutLite({
   children,

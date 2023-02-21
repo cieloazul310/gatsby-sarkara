@@ -29,6 +29,10 @@ export type SarkaraLayoutProps = React.PropsWithChildren<{
   disableSidebarSticky?: boolean;
 }>;
 
+/**
+ * Sarkara basic layout structure component
+ * with header, jumbotron, footer, sidebar and drawer.
+ */
 function SarkaraLayout({
   children,
   title,
