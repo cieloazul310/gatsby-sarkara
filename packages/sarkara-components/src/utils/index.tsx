@@ -3,7 +3,7 @@ export { default as useContentMaxWidth } from './useContentMaxWidth';
 export { default as useGradient } from './useGradient';
 export { default as useGradientBox } from './useGradientBox';
 export { default as useHeaderHeight } from './useHeaderHeight';
-export { default as useIsExternal } from './useIsExternal';
+export { default as useIsInternal } from './useIsInternal';
 export {
   default as useJumbotronSizes,
   useHeaderXsHeight,

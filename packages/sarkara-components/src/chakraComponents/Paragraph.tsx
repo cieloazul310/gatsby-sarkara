@@ -4,24 +4,16 @@ import {
   forwardRef,
   chakra,
   Text,
-  Link as ChakraLink,
   Code as ChakraCode,
   Divider,
   type TextProps,
-  type LinkProps as ChakraLinkProps,
   type DividerProps,
   type CodeProps,
   type ChakraProps,
   type ComponentWithAs,
   type As,
 } from '@chakra-ui/react';
-import { ExternalLinkIcon } from '@chakra-ui/icons';
-import {
-  useAlpha,
-  usePrimaryToken,
-  useSecondaryToken,
-  useIsExternal,
-} from '../utils';
+import { useAlpha, usePrimaryToken, useSecondaryToken } from '../utils';
 
 const ChakraBlockquote = chakra('blockquote');
 
@@ -29,25 +21,6 @@ export const Paragraph: ComponentWithAs<As<any>, TextProps> = forwardRef<
   TextProps,
   'p'
 >((props, ref) => <Text my={4} ref={ref} {...props} />);
-
-export const SarkaraLink: ComponentWithAs<
-  As<any>,
-  ChakraLinkProps
-> = forwardRef<ChakraLinkProps, 'a'>(({ href, children, ...props }, ref) => {
-  const isExternal = useIsExternal(href ?? '/');
-
-  if (!isExternal) {
-    <ChakraLink ref={ref} href={href} {...props}>
-      {children}
-    </ChakraLink>;
-  }
-  return (
-    <ChakraLink ref={ref} href={href} isExternal {...props}>
-      {children}
-      <ExternalLinkIcon mx="2px" />
-    </ChakraLink>
-  );
-});
 
 export const Hr: ComponentWithAs<'hr', DividerProps> = forwardRef<
   DividerProps,

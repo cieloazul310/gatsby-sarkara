@@ -1,16 +1,12 @@
 import * as React from 'react';
+import { Thead, Tbody, Tr, Th, Td } from '@chakra-ui/react';
 import {
-  Table,
-  Thead,
-  Tbody,
-  Tr,
-  Th,
-  Td,
+  SarkaraTable,
 } from '@cieloazul310/sarkara-components';
 
 export function TableExample() {
   return (
-    <Table>
+    <SarkaraTable>
       <Thead>
         <Tr>
           <Th>Name</Th>
@@ -39,13 +35,13 @@ export function TableExample() {
           <Td>1897</Td>
         </Tr>
       </Tbody>
-    </Table>
+    </SarkaraTable>
   );
 }
 
 export function TableExampleJa() {
   return (
-    <Table>
+    <SarkaraTable>
       <Thead>
         <Tr>
           <Th>名前</Th>
@@ -74,6 +70,6 @@ export function TableExampleJa() {
           <Td>ピアノ・メディア</Td>
         </Tr>
       </Tbody>
-    </Table>
+    </SarkaraTable>
   );
 }

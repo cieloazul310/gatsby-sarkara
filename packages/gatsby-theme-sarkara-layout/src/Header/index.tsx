@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Spacer, Heading } from '@chakra-ui/react';
 import {
-  Link,
+  GatsbySarkaraLink,
   useSiteMetadata,
 } from '@cieloazul310/gatsby-theme-sarkara-components';
 import { SarkaraHeader } from '@cieloazul310/sarkara-layout';
@@ -11,7 +11,7 @@ function Header() {
   const { title } = useSiteMetadata();
   return (
     <SarkaraHeader>
-      <Link
+      <GatsbySarkaraLink
         href="/"
         color="white"
         _hover={{
@@ -22,7 +22,7 @@ function Header() {
         <Heading as="h1" size="md">
           {title}
         </Heading>
-      </Link>
+      </GatsbySarkaraLink>
       <Spacer display={['none', 'inherit']} />
       <HeaderRight />
     </SarkaraHeader>

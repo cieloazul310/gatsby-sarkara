@@ -1,17 +1,12 @@
 /* eslint react/jsx-props-no-spreading: warn */
+import { Thead, Tbody, Tfoot, Tr, Th, Td } from '@chakra-ui/react';
 import type { MDXComponents } from 'mdx/types';
-import {
-  Paragraph,
-  SarkaraLink,
-  Hr,
-  Code,
-  CodeBlock,
-  Blockquote,
-} from './Paragraph';
+import { Paragraph, Hr, Code, CodeBlock, Blockquote } from './Paragraph';
 import { H1, H2, H3, H4, H5, H6 } from './Heading';
 import { Ol, Ul, Li } from './List';
 import { Iframe, Img } from './Media';
-import { Table, Thead, Tbody, Tfoot, Tr, Th, Td } from './Table';
+import SarkaraLink from './SarkaraLink';
+import SarkaraTable from './Table';
 
 const chakraComponents: MDXComponents = {
   p: Paragraph,
@@ -31,7 +26,7 @@ const chakraComponents: MDXComponents = {
   code: Code,
   pre: CodeBlock,
   hr: Hr,
-  table: Table,
+  table: SarkaraTable,
   thead: Thead,
   tbody: Tbody,
   tfoot: Tfoot,

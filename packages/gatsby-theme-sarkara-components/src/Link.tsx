@@ -2,50 +2,40 @@
 import * as React from 'react';
 import { Link as GatsbyLink, type GatsbyLinkProps } from 'gatsby';
 import {
-  useColorMode,
-  Link as ChakraLink,
+  forwardRef,
   type LinkProps as ChakraLinkProps,
+  type ComponentWithAs,
+  type As,
 } from '@chakra-ui/react';
-import { ExternalLinkIcon } from '@chakra-ui/icons';
-import { usePrimaryToken } from '@cieloazul310/sarkara-components';
-import { useIsExternal } from './utils';
+import { SarkaraLink, useIsInternal } from '@cieloazul310/sarkara-components';
 
-export type LinkProps<TState = Record<string, unknown>> = Omit<
-  GatsbyLinkProps<TState>,
-  'to'
-> &
+export type GatsbySarkaraLinkProps<
+  TState extends object = Record<string, unknown>
+> = Omit<GatsbyLinkProps<TState>, 'to'> &
   Omit<ChakraLinkProps, 'href'> &
   Required<Pick<ChakraLinkProps, 'href'>>;
 
-function Link<TState = Record<string, unknown>>({
-  href,
-  children,
-  color,
-  ...props
-}: LinkProps) {
-  const { colorMode } = useColorMode();
-  const external = useIsExternal(href);
-  const shade = colorMode === 'light' ? 500 : 200;
-  const token = usePrimaryToken(shade);
+const GatsbySarkaraLink: ComponentWithAs<
+  As<any>,
+  GatsbySarkaraLinkProps
+> = forwardRef<GatsbySarkaraLinkProps, As>(
+  ({ href, children, ...props }, ref) => {
+    const internal = useIsInternal(href);
 
-  if (!external) {
+    if (internal) {
+      return (
+        <SarkaraLink as={GatsbyLink} ref={ref} {...props} to={href}>
+          {children}
+        </SarkaraLink>
+      );
+    }
+
     return (
-      <ChakraLink
-        as={GatsbyLink<TState>}
-        color={color ?? token}
-        {...props}
-        to={href}
-      >
+      <SarkaraLink ref={ref} href={href} {...props}>
         {children}
-      </ChakraLink>
+      </SarkaraLink>
     );
   }
-  return (
-    <ChakraLink href={href} isExternal color={color ?? token} {...props}>
-      {children}
-      <ExternalLinkIcon mx="2px" />
-    </ChakraLink>
-  );
-}
+);
 
-export default Link;
+export default GatsbySarkaraLink;

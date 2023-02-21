@@ -3,19 +3,13 @@ import * as React from 'react';
 import {
   forwardRef,
   Table as ChakraTable,
-  Thead,
-  Tbody,
-  Tfoot,
-  Tr,
-  Th,
-  Td,
   TableContainer,
   useColorModeValue,
   type TableProps as ChakraTableProps,
   type ComponentWithAs,
 } from '@chakra-ui/react';
 
-export const Table: ComponentWithAs<'table', ChakraTableProps> = forwardRef<
+const SarkaraTable: ComponentWithAs<'table', ChakraTableProps> = forwardRef<
   ChakraTableProps,
   'table'
 >((props, ref) => {
@@ -27,4 +21,4 @@ export const Table: ComponentWithAs<'table', ChakraTableProps> = forwardRef<
   );
 });
 
-export { Thead, Tbody, Tfoot, Tr, Th, Td };
+export default SarkaraTable;
