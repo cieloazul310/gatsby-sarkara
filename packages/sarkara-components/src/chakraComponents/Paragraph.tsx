@@ -6,6 +6,7 @@ import {
   Text,
   Code as ChakraCode,
   Divider,
+  useColorModeValue,
   type TextProps,
   type DividerProps,
   type CodeProps,
@@ -32,7 +33,14 @@ export const Code: ComponentWithAs<'code', CodeProps> = forwardRef<
   'code'
 >((props, ref) => {
   const token = useSecondaryToken();
-  return <ChakraCode colorScheme={token} ref={ref} {...props} />;
+  return (
+    <ChakraCode
+      sx={{ 'pre > &': { bg: 'none', color: 'inherit' } }}
+      colorScheme={token}
+      ref={ref}
+      {...props}
+    />
+  );
 });
 
 export const CodeBlock: ComponentWithAs<'pre', CodeProps> = forwardRef<
@@ -51,7 +59,7 @@ export const CodeBlock: ComponentWithAs<'pre', CodeProps> = forwardRef<
       whiteSpace="pre"
       rounded="xl"
       {...props}
-      px={[2, 2, 4]}
+      px={[2, 4]}
       py={8}
       my={4}
     />
@@ -62,14 +70,17 @@ export const Blockquote: ComponentWithAs<'blockquote', ChakraProps> =
   forwardRef<ChakraProps, 'blockquote'>((props, ref) => {
     const bgBase = usePrimaryToken(600);
     const bg = useAlpha(bgBase, 0.1);
+    const colorShade = useColorModeValue(800, 50);
+    const color = usePrimaryToken(colorShade);
     return (
       <ChakraBlockquote
         ref={ref}
         my={4}
         bg={bg}
-        px={[2, 2, 4]}
+        px={[2, 4]}
         py={[4, 8]}
         rounded="xl"
+        color={color}
         {...props}
       />
     );

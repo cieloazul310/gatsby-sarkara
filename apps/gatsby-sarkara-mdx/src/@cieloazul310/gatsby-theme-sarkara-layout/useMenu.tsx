@@ -3,7 +3,7 @@ import type { Menu } from '@cieloazul310/gatsby-theme-sarkara';
 function useMenu() {
   const menu: Menu = [
     { title: 'Top Page', path: '/' },
-    { title: 'Page 2', path: '/page-2' },
+    { title: 'MDX Example', path: '/page-2' },
     {
       title: 'Link',
       items: [

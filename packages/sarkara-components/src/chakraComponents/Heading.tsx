@@ -22,7 +22,7 @@ export const H1: ComponentWithAs<As<any>, HeadingProps> = forwardRef<
     ref={ref}
     mt={8}
     mb={8}
-    size="xl"
+    size="2xl"
     _first={{ ..._first, ...firstStyle }}
     {...props}
   />
@@ -39,7 +39,7 @@ export const H2: ComponentWithAs<As<any>, HeadingProps> = forwardRef<
       ref={ref}
       mt={8}
       mb={4}
-      size="lg"
+      size="xl"
       borderBottomWidth="1px"
       borderBottomColor={borderBottomColor}
       _first={{ ..._first, ...firstStyle }}
@@ -57,7 +57,7 @@ export const H3: ComponentWithAs<As<any>, HeadingProps> = forwardRef<
     ref={ref}
     mt={8}
     mb={4}
-    size="md"
+    size="lg"
     _first={{ ..._first, ...firstStyle }}
     {...props}
   />
@@ -72,7 +72,7 @@ export const H4: ComponentWithAs<As<any>, HeadingProps> = forwardRef<
     ref={ref}
     mt={4}
     mb={4}
-    size="sm"
+    size="md"
     _first={{ ..._first, ...firstStyle }}
     {...props}
   />

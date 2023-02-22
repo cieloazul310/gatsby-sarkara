@@ -1,3 +1,5 @@
+/* eslint global-require: warn */
+/* eslint import/no-extraneous-dependencies: warn */
 import type { GatsbyConfig } from 'gatsby';
 
 const config: GatsbyConfig = {
@@ -11,7 +13,14 @@ const config: GatsbyConfig = {
     `gatsby-plugin-pnpm`,
     `@chakra-ui/gatsby-plugin`,
     `@cieloazul310/gatsby-theme-sarkara`,
-    `gatsby-plugin-mdx`,
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        mdxOptions: {
+          remarkPlugins: [require('remark-gfm')]
+        },
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
